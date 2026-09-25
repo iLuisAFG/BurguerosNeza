@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Lilita+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --color-brand-yellow: #FDCC02;
+  --color-brand-yellow-hover: #e5b802;
+  --color-brand-yellow-light: #FEE450;
+  --color-brand-cream: #FCF4E8;
+  --color-brand-dark: #0E0E10;
+  --color-brand-dark-card: #141416;
+  --color-brand-red: #E62429;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-dark);
+  overflow-x: hidden;
+}
+
+/* Typography styles */
+.font-comic {
+  font-family: 'Lilita One', cursive, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-bangers {
+  font-family: 'Bangers', cursive, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Hero Title Graphic Styles */
+.hero-title-main {
+  font-family: 'Lilita One', cursive, sans-serif;
+  font-size: clamp(3.4rem, 9.5vw, 7.2rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: #0E0E10;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.hero-subtitle-red {
+  font-family: 'Lilita One', cursive, sans-serif;
+  color: var(--color-brand-red);
+  letter-spacing: 0.04em;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Hand-drawn Brush Underlines */
+.brush-underline-red {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-underline-red::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  bottom: -4px;
+  width: 104%;
+  height: 6px;
+  background-color: var(--color-brand-red);
+  border-radius: 4px 6px 4px 6px;
+  transform: rotate(-1deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brush-underline-yellow {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-underline-yellow::after {
+  content: '';
+  position: absolute;
+  left: -3%;
+  bottom: -4px;
+  width: 106%;
+  height: 6px;
+  background-color: var(--color-brand-yellow);
+  border-radius: 4px 6px 4px 6px;
+  transform: rotate(-1deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Torn paper transitions */
+.torn-divider-top {
+  width: 100%;
+  height: 28px;
+  background-image: url('assets/torn-top.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 20;
+  margin-top: -1px;
+}
+
+.torn-divider-bottom {
+  width: 100%;
+  height: 28px;
+  background-image: url('assets/torn-bottom.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 20;
+  margin-bottom: -1px;
+}
+
+/* Card hover & micro-interactions */
+.menu-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  background-color: #121214;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.45);
+}
+
+.menu-card:hover .menu-btn-arrow {
+  transform: translateX(3px);
+  background-color: #ffe033;
+}
+
+.menu-btn-arrow {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Pulse glow for buttons */
+@keyframes whatsappPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: whatsappPulse 2.5s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FCF4E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #FDCC02;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e5b802;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Active navigation item underline */
+.nav-link-active {
+  position: relative;
+  font-weight: 700;
+}
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2.5px;
+  background-color: #0E0E10;
+  border-radius: 2px;
+}

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Burgueros | Las Mejores Hamburguesas de Neza</title>
+  <meta name="description" content="Ver Burgueros Nezayork: Las mejores hamburguesas de Neza. Sabor, calidad y actitud en cada mordida. Con hambre, sin miedo. Pide por WhatsApp al 5655263382.">
+  <link rel="icon" type="image/jpeg" href="assets/28560.jpg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#FDCC02',
+              yellowHover: '#e5b802',
+              yellowLight: '#FEE450',
+              cream: '#FCF4E8',
+              dark: '#0E0E10',
+              darkCard: '#141416',
+              red: '#E62429',
+            }
+          },
+          fontFamily: {
+            comic: ['"Lilita One"', 'cursive', 'sans-serif'],
+            bangers: ['Bangers', 'cursive', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FCF4E8] text-[#0E0E10] antialiased font-sans selection:bg-[#FDCC02] selection:text-black">
+
+  <!-- ========================================== -->
+  <!-- 1. HEADER / NAVEGACIÓN                     -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 w-full bg-[#FDCC02] border-b border-black/10 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+      
+      <!-- Brand Logo Left -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none" aria-label="Ir a Inicio - Burgueros Neza">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-black/80 shadow-md bg-[#FDCC02] transform transition-transform group-hover:scale-105">
+          <img src="assets/28560.jpg" alt="Logo Ver Burgueros Neza" class="w-full h-full object-cover">
+        </div>
+      </a>
+
+      <!-- Center Navigation Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 lg:gap-12">
+        <a href="#inicio" class="nav-link-active font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Inicio</a>
+        <a href="#menu" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Menú</a>
+        <a href="#nosotros" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Nosotros</a>
+        <a href="#contacto" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Contacto</a>
+      </nav>
+
+      <!-- Right Action CTA & Mobile Trigger -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-md transition-all transform hover:scale-105 active:scale-95">
+          <!-- WhatsApp Icon -->
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          <span>Pide por WhatsApp</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-black hover:bg-black/10 rounded-lg transition-colors focus:outline-none" aria-label="Abrir Menú">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="hidden md:hidden bg-[#FDCC02] border-t border-black/10 px-6 py-6 space-y-4 shadow-xl">
+      <div class="flex justify-between items-center pb-2 border-b border-black/10">
+        <span class="font-comic text-xl text-black">BURGUEROS NEZA</span>
+        <button id="mobile-drawer-close" class="text-black p-1 hover:bg-black/10 rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <a href="#inicio" class="block font-bold text-lg text-black py-2 border-b border-black/5">Inicio</a>
+      <a href="#menu" class="block font-bold text-lg text-black py-2 border-b border-black/5">Menú</a>
+      <a href="#nosotros" class="block font-bold text-lg text-black py-2 border-b border-black/5">Nosotros</a>
+      <a href="#contacto" class="block font-bold text-lg text-black py-2 border-b border-black/5">Contacto</a>
+      <div class="pt-2">
+        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" target="_blank" class="w-full bg-[#0E0E10] text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow">
+          <span>Pide por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION (PRINCIPAL)                -->
+  <!-- ========================================== -->
+  <section id="inicio" class="relative bg-[#FDCC02] overflow-hidden py-8 sm:py-12 lg:py-16" style="background-image: url('assets/28566.png'); background-repeat: repeat; background-size: cover; background-position: center;">
+    
+    <!-- Hero Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+        
+        <!-- Left Column: Typography & CTA -->
+        <div class="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-2 sm:pt-4">
+          
+          <!-- Hand-drawn Crown Doodle above headline -->
+          <div class="mb-2 self-center lg:self-start">
+            <svg class="w-12 h-9 sm:w-16 sm:h-11 text-black fill-[#FDCC02] stroke-black stroke-[3.5]" viewBox="0 0 60 40">
+              <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Headline Part 1 -->
+          <h2 class="font-bangers text-black text-2xl sm:text-3xl md:text-4xl tracking-wider leading-none uppercase">
+            LAS MEJORES HAMBURGUESAS DE
+          </h2>
+
+          <!-- Headline Part 2: GIANT "NEZA" with red bracket marks -->
+          <div class="my-2 sm:my-3 relative inline-flex items-center justify-center gap-2 sm:gap-4">
+            <!-- Left Red Accent Marks (( -->
+            <div class="flex gap-1 items-center">
+              <span class="block w-2.5 sm:w-3.5 h-10 sm:h-16 bg-[#E62429] rounded-full transform -rotate-12"></span>
+              <span class="block w-2.5 sm:w-3.5 h-12 sm:h-20 bg-[#E62429] rounded-full transform -rotate-12"></span>
+            </div>
+
+            <!-- "NEZA" Text -->
+            <h1 class="hero-title-main font-comic text-[#0E0E10] text-7xl sm:text-8xl md:text-9xl tracking-tight select-none">
+              NEZA
+            </h1>
+
+            <!-- Right Red Accent Marks )) -->
+            <div class="flex gap-1 items-center">
+              <span class="block w-2.5 sm:w-3.5 h-12 sm:h-20 bg-[#E62429] rounded-full transform rotate-12"></span>
+              <span class="block w-2.5 sm:w-3.5 h-10 sm:h-16 bg-[#E62429] rounded-full transform rotate-12"></span>
+            </div>
+          </div>
+
+          <!-- Subtitle in Red Street Font with Underline -->
+          <div class="mt-1 mb-7 sm:mb-9 flex flex-col items-center lg:items-start">
+            <p class="font-comic text-[#E62429] text-xl sm:text-2xl md:text-3xl uppercase tracking-wide leading-tight">
+              SABOR, CALIDAD Y ACTITUD
+            </p>
+            <div class="mt-1">
+              <span class="brush-underline-red font-comic text-[#E62429] text-xl sm:text-2xl md:text-3xl uppercase tracking-wide leading-tight">
+                EN CADA MORDIDA
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero CTA Button -->
+          <div class="pt-2">
+            <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-lg sm:text-xl px-8 sm:px-10 py-4 rounded-full inline-flex items-center gap-3 shadow-xl transform transition-all hover:scale-105 active:scale-95 group">
+              <!-- WhatsApp Icon -->
+              <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+              <span>Pide por WhatsApp</span>
+              <!-- Right Arrow -->
+              <svg class="w-5 h-5 text-white transition-transform group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Urban 3D Characters & Burger Composition (Seamless Cutout) -->
+        <div class="lg:col-span-6 flex justify-center items-center relative mt-4 lg:mt-0">
+          <div class="w-full max-w-lg lg:max-w-none transform transition-transform hover:scale-102 duration-300">
+            <img src="assets/hero-cutout-final.png" 
+                 alt="Personajes Urbanos Oso y Elefante disfrutando hamburguesa gigante Burgueros Neza" 
+                 class="w-full h-auto object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 3. CINTA DE BENEFICIOS (FEATURES BAR)      -->
+  <!-- ========================================== -->
+  <section class="bg-[#FDCC02] border-y border-black/15 py-4 sm:py-5 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-black/15">
+        
+        <!-- Feature 1: Ingredientes de calidad -->
+        <div class="flex items-center gap-3 sm:gap-4 justify-center sm:justify-start lg:justify-center pt-2 sm:pt-0 sm:px-3">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <svg class="w-10 h-10 text-black fill-none stroke-black stroke-[2.4]" viewBox="0 0 36 36">
+              <path d="M5 16 C5 8, 31 8, 31 16 Z" fill="none" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="0.8" fill="black"/>
+              <circle cx="18" cy="10" r="0.8" fill="black"/>
+              <circle cx="24" cy="12" r="0.8" fill="black"/>
+              <path d="M4 19 Q18 22 32 19" stroke-linecap="round"/>
+              <path d="M6 23 Q18 26 30 23" stroke-linecap="round"/>
+              <path d="M6 26 C6 30, 30 30, 30 26 Z" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-black text-sm sm:text-base leading-snug">
+            Ingredientes<br>de calidad
+          </span>
+        </div>
+
+        <!-- Feature 2: Papas siempre crujientes -->
+        <div class="flex items-center gap-3 sm:gap-4 justify-center sm:justify-start lg:justify-center pt-2 sm:pt-0 sm:px-3">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <svg class="w-10 h-10 text-black fill-none stroke-black stroke-[2.4]" viewBox="0 0 36 36">
+              <line x1="10" y1="16" x2="10" y2="6" stroke-linecap="round"/>
+              <line x1="14" y1="16" x2="14" y2="4" stroke-linecap="round"/>
+              <line x1="18" y1="16" x2="18" y2="5" stroke-linecap="round"/>
+              <line x1="22" y1="16" x2="22" y2="4" stroke-linecap="round"/>
+              <line x1="26" y1="16" x2="26" y2="7" stroke-linecap="round"/>
+              <path d="M7 16 L10 32 L26 32 L29 16 Z" stroke-linejoin="round"/>
+              <path d="M14 26 L16 22 L18 26 L20 22 L22 26 Z" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-black text-sm sm:text-base leading-snug">
+            Papas siempre<br>crujientes
+          </span>
+        </div>
+
+        <!-- Feature 3: Servicio rápido y seguro -->
+        <div class="flex items-center gap-3 sm:gap-4 justify-center sm:justify-start lg:justify-center pt-2 sm:pt-0 sm:px-3">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <svg class="w-10 h-10 text-black fill-none stroke-black stroke-[2.4]" viewBox="0 0 36 36">
+              <circle cx="9" cy="27" r="4.5"/>
+              <circle cx="27" cy="27" r="4.5"/>
+              <path d="M9 27 L18 27 L25 15 L28 15" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="21" cy="10" r="2.8"/>
+              <path d="M18 19 L21 14 L24 18" stroke-linecap="round"/>
+              <rect x="13" y="11" width="5.5" height="7.5" rx="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-black text-sm sm:text-base leading-snug">
+            Servicio rápido<br>y seguro
+          </span>
+        </div>
+
+        <!-- Feature 4: El sabor de Neza en cada bocado -->
+        <div class="flex items-center gap-3 sm:gap-4 justify-center sm:justify-start lg:justify-center pt-2 sm:pt-0 sm:px-3">
+          <div class="w-12 h-12 shrink-0 flex items-center justify-center">
+            <svg class="w-10 h-10 text-black fill-none stroke-black stroke-[2.4]" viewBox="0 0 36 36">
+              <path d="M18 31 C18 31 6 22 6 13 C6 8.5 9.5 5 14 5 C16.5 5 18 6.5 18 6.5 C18 6.5 19.5 5 22 5 C26.5 5 30 8.5 30 13 C30 22 18 31 18 31 Z" stroke-linejoin="round"/>
+              <path d="M18 24 C18 24 11 18 11 13 C11 10.5 12.5 9 14.5 9 C16 9 18 10 18 10 C18 10 20 9 21.5 9 C23.5 9 25 10.5 25 13 C25 18 18 24 18 24 Z" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-black text-sm sm:text-base leading-snug">
+            El sabor de Neza<br>en cada bocado
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 4. SECCIÓN "NUESTRO MENÚ"                  -->
+  <!-- ========================================== -->
+  <section id="menu" class="bg-[#FCF4E8] py-14 sm:py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        
+        <!-- Left Column: Title & Description -->
+        <div class="lg:col-span-4 flex flex-col items-start pt-2">
+          
+          <!-- Doodle Crown -->
+          <div class="mb-1">
+            <svg class="w-11 h-8 text-black fill-[#FDCC02] stroke-black stroke-[3.5]" viewBox="0 0 60 40">
+              <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Section Title with Red Brush Underline -->
+          <h2 class="font-comic text-5xl sm:text-6xl text-black leading-none uppercase tracking-tight transform -rotate-2">
+            NUESTRO
+          </h2>
+          <div class="mb-4">
+            <span class="brush-underline-red font-comic text-6xl sm:text-7xl text-black leading-none uppercase tracking-tight transform -rotate-2">
+              MENÚ
+            </span>
+          </div>
+
+          <p class="text-neutral-700 text-base sm:text-lg font-medium leading-relaxed max-w-sm mb-7">
+            Hamburguesas, papas, bebidas y mucho más. ¡Todo el sabor de Neza en un solo lugar!
+          </p>
+
+          <!-- "Ver menú completo ->" Button -->
+          <button onclick="openMenuModal('todas')" class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-base px-7 py-3.5 rounded-full inline-flex items-center gap-3 shadow-lg transform transition-all hover:scale-105 active:scale-95 group">
+            <span>Ver menú completo</span>
+            <svg class="w-5 h-5 text-white transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Right Column: 4 Dark Cards Grid -->
+        <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+          
+          <!-- Card 1: HAMBURGUESAS -->
+          <div onclick="openMenuModal('hamburguesas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
+            <div>
+              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
+                <img src="assets/menu-burger.png" alt="Hamburguesas Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+              </div>
+              <div class="p-3.5 sm:p-5">
+                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
+                  HAMBURGUESAS
+                </h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
+                  Clásicas, especiales y más.
+                </p>
+              </div>
+            </div>
+            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: PAPAS -->
+          <div onclick="openMenuModal('papas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
+            <div>
+              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
+                <img src="assets/menu-fries.png" alt="Papas Fritas Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+              </div>
+              <div class="p-3.5 sm:p-5">
+                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
+                  PAPAS
+                </h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
+                  Crujientes y deliciosas.
+                </p>
+              </div>
+            </div>
+            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: BEBIDAS -->
+          <div onclick="openMenuModal('bebidas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
+            <div>
+              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
+                <img src="assets/menu-drinks.png" alt="Bebidas Refrescantes Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+              </div>
+              <div class="p-3.5 sm:p-5">
+                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
+                  BEBIDAS
+                </h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
+                  Refresca tu hamburguesa.
+                </p>
+              </div>
+            </div>
+            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: EXTRAS -->
+          <div onclick="openMenuModal('extras')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
+            <div>
+              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
+                <img src="assets/menu-extras.png" alt="Extras y Boneless Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+              </div>
+              <div class="p-3.5 sm:p-5">
+                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
+                  EXTRAS
+                </h3>
+                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
+                  Tenders, alitas, boneless y más.
+                </p>
+              </div>
+            </div>
+            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 5. SECCIÓN "¿POR QUÉ ELEGIRNOS?"           -->
+  <!-- ========================================== -->
+  <!-- Torn paper divider top transition -->
+  <div class="torn-divider-top"></div>
+
+  <section id="nosotros" class="bg-[#0E0E10] text-white py-10 sm:py-14 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+        
+        <!-- Left Column: Hand holding gigantic burger with street slogan -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-start">
+          <div class="relative max-w-md w-full transform transition-transform hover:scale-102 duration-300">
+            <img src="assets/hand-burger.png" 
+                 alt="Mano sosteniendo hamburguesa gigante - No es solo una hamburguesa... Es Burgueros Neza" 
+                 class="w-full h-auto object-contain rounded-2xl drop-shadow-2xl">
+          </div>
+        </div>
+
+        <!-- Right Column: Title and 4 feature columns -->
+        <div class="lg:col-span-7 flex flex-col pt-2 lg:pt-0">
+          
+          <!-- Title: "¿POR QUÉ ELEGIRNOS?" -->
+          <div class="mb-10 text-center lg:text-left">
+            <h2 class="font-comic text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wide leading-none inline-block">
+              ¿POR QUÉ 
+              <span class="brush-underline-yellow text-[#FDCC02] ml-2">ELEGIRNOS?</span>
+            </h2>
+          </div>
+
+          <!-- 4 Benefit Columns (Grid) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-800">
+            
+            <!-- Item 1: Sabor único -->
+            <div class="flex flex-col items-center text-center px-2 pt-4 sm:pt-0">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3">
+                <svg class="w-11 h-11 text-[#FDCC02] fill-none stroke-[#FDCC02] stroke-[2.2]" viewBox="0 0 36 36">
+                  <path d="M5 16 C5 8, 31 8, 31 16 Z" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="0.8" fill="#FDCC02"/>
+                  <circle cx="18" cy="10" r="0.8" fill="#FDCC02"/>
+                  <circle cx="24" cy="12" r="0.8" fill="#FDCC02"/>
+                  <path d="M4 20 Q18 23 32 20" stroke-linecap="round"/>
+                  <path d="M6 24 Q18 27 30 24" stroke-linecap="round"/>
+                  <path d="M6 27 C6 31, 30 31, 30 27 Z" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-white text-base sm:text-lg mb-1">Sabor único</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                Recetas originales que te van a encantar.
+              </p>
+            </div>
+
+            <!-- Item 2: Ingredientes de calidad -->
+            <div class="flex flex-col items-center text-center px-2 pt-4 sm:pt-0">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3">
+                <svg class="w-11 h-11 text-[#FDCC02] fill-none stroke-[#FDCC02] stroke-[2.2]" viewBox="0 0 36 36">
+                  <polygon points="18,4 22.5,13 32.5,14.5 25.5,21.5 27,31.5 18,26.5 9,31.5 10.5,21.5 3.5,14.5 13.5,13" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-white text-base sm:text-lg mb-1">Ingredientes de calidad</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                Solo lo mejor, siempre.
+              </p>
+            </div>
+
+            <!-- Item 3: Ambiente chido -->
+            <div class="flex flex-col items-center text-center px-2 pt-4 sm:pt-0">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3">
+                <svg class="w-11 h-11 text-[#FDCC02] fill-none stroke-[#FDCC02] stroke-[2.2]" viewBox="0 0 36 36">
+                  <circle cx="18" cy="11" r="3.5"/>
+                  <path d="M12 25 C12 21 15 19 18 19 C21 19 24 21 24 25" stroke-linecap="round"/>
+                  <circle cx="10" cy="14" r="2.8"/>
+                  <path d="M5 25 C5 22 7.5 21 10 21" stroke-linecap="round"/>
+                  <circle cx="26" cy="14" r="2.8"/>
+                  <path d="M26 21 C28.5 21 31 22 31 25" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-white text-base sm:text-lg mb-1">Ambiente chido</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                Perfecto para compartir.
+              </p>
+            </div>
+
+            <!-- Item 4: Orgullosamente nezayork -->
+            <div class="flex flex-col items-center text-center px-2 pt-4 sm:pt-0">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3">
+                <svg class="w-11 h-11 text-[#FDCC02] fill-none stroke-[#FDCC02] stroke-[2.2]" viewBox="0 0 36 36">
+                  <path d="M4 27 L8 11 L18 20 L28 11 L32 27 Z" stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-white text-base sm:text-lg mb-1">Orgullosamente nezayork</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+                Desde Neza, para todo México.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Torn paper divider bottom transition -->
+  <div class="torn-divider-bottom"></div>
+
+
+  <!-- ========================================== -->
+  <!-- 6. TESTIMONIOS ("LO QUE DICEN NUESTROS CLIENTES") -->
+  <!-- ========================================== -->
+  <section class="bg-[#FCF4E8] py-14 sm:py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+        
+        <!-- Left Header -->
+        <div class="lg:col-span-4 flex flex-col items-start">
+          <!-- Doodle Crown -->
+          <div class="mb-1">
+            <svg class="w-11 h-8 text-black fill-[#FDCC02] stroke-black stroke-[3.5]" viewBox="0 0 60 40">
+              <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Title with Red Brush Underline -->
+          <h2 class="font-comic text-3xl sm:text-4xl lg:text-5xl text-black leading-tight uppercase tracking-tight transform -rotate-1">
+            LO QUE DICEN
+          </h2>
+          <div class="mb-3">
+            <span class="brush-underline-red font-comic text-3xl sm:text-4xl lg:text-5xl text-black leading-tight uppercase tracking-tight transform -rotate-1 whitespace-nowrap">
+              NUESTROS CLIENTES
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: 3 Testimonial Cards -->
+        <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-5">
+          
+          <!-- Review 1: Carlos M. -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/60 hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/avatar-1.png" alt="Cliente Carlos M." class="w-12 h-12 rounded-full object-cover bg-neutral-100 border border-neutral-300">
+                <div>
+                  <h4 class="font-bold text-black text-base leading-tight">Carlos M.</h4>
+                  <!-- 5 Yellow Stars -->
+                  <div class="flex text-[#FDCC02] text-sm mt-0.5" aria-label="5 de 5 estrellas">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+              <p class="text-neutral-700 text-sm leading-relaxed italic">
+                “Las mejores hamburguesas de Neza, siempre una experiencia increíble.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Review 2: Ana G. -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/60 hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/avatar-2.png" alt="Cliente Ana G." class="w-12 h-12 rounded-full object-cover bg-neutral-100 border border-neutral-300">
+                <div>
+                  <h4 class="font-bold text-black text-base leading-tight">Ana G.</h4>
+                  <!-- 5 Yellow Stars -->
+                  <div class="flex text-[#FDCC02] text-sm mt-0.5" aria-label="5 de 5 estrellas">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+              <p class="text-neutral-700 text-sm leading-relaxed italic">
+                “El sabor es brutal, las papas están súper crujientes y el servicio es muy rápido.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Review 3: Luis R. -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/60 hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <img src="assets/avatar-3.png" alt="Cliente Luis R." class="w-12 h-12 rounded-full object-cover bg-neutral-100 border border-neutral-300">
+                <div>
+                  <h4 class="font-bold text-black text-base leading-tight">Luis R.</h4>
+                  <!-- 5 Yellow Stars -->
+                  <div class="flex text-[#FDCC02] text-sm mt-0.5" aria-label="5 de 5 estrellas">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+              <p class="text-neutral-700 text-sm leading-relaxed italic">
+                “100% recomendados, son los mejores. No hay otro igual en la zona.”
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 7. LLAMADA A LA ACCIÓN FINAL (CTA BANNER)  -->
+  <!-- ========================================== -->
+  <section class="bg-[#0E0E10] text-white py-14 sm:py-16 relative overflow-hidden">
+    
+    <!-- Background Burger Doodle Left -->
+    <div class="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 opacity-80 pointer-events-none hidden sm:block">
+      <img src="assets/cta-burger-doodle.png" alt="Doodle Hamburguesa" class="w-36 md:w-48 lg:w-56 h-auto">
+    </div>
+
+    <!-- Background Fries Doodle Right -->
+    <div class="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 opacity-80 pointer-events-none hidden sm:block">
+      <img src="assets/cta-fries-doodle.png" alt="Doodle Papas Fritas" class="w-32 md:w-44 lg:w-52 h-auto">
+    </div>
+
+    <!-- Center Content -->
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10 flex flex-col items-center">
+      
+      <!-- Crown Doodle -->
+      <div class="mb-2">
+        <svg class="w-12 h-9 text-[#FDCC02] fill-[#FDCC02] stroke-[#FDCC02] stroke-[2]" viewBox="0 0 60 40">
+          <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Title: "¿SE TE ANTOJÓ?" with Red Accent dashes -->
+      <div class="inline-flex items-center gap-2 sm:gap-3 mb-6">
+        <span class="block w-2.5 sm:w-3 h-8 sm:h-12 bg-[#E62429] rounded-full transform -rotate-12"></span>
+        <h2 class="font-comic text-4xl sm:text-5xl md:text-6xl text-[#FDCC02] uppercase tracking-wider leading-none">
+          ¿SE TE ANTOJÓ?
+        </h2>
+        <span class="block w-2.5 sm:w-3 h-8 sm:h-12 bg-[#E62429] rounded-full transform rotate-12"></span>
+      </div>
+
+      <!-- CTA Yellow Button -->
+      <a href="https://wa.me/525655263382?text=¡Hola!%20Se%20me%20antojaron%20unas%20hamburguesas%20de%20Burgueros%20Neza%20🍔🍟%20¿Me%20pasan%20la%20carta%3F" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-base sm:text-xl px-8 sm:px-12 py-3.5 sm:py-4 rounded-full inline-flex items-center gap-3 shadow-2xl transform transition-all hover:scale-105 active:scale-95 group mb-5">
+        <!-- WhatsApp Icon -->
+        <svg class="w-6 h-6 fill-current text-black" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+        <span>Pide ahora por WhatsApp</span>
+        <!-- Arrow -->
+        <svg class="w-5 h-5 text-black transition-transform group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <!-- Subtitle with Doodle Arrows: <== Estamos listos para atenderte ==> -->
+      <div class="flex items-center justify-center gap-3 text-white text-sm sm:text-base font-semibold tracking-wide">
+        <!-- Left Doodle Arrow -->
+        <svg class="w-8 sm:w-12 h-4 stroke-white fill-none stroke-[2.2]" viewBox="0 0 48 16">
+          <path d="M16 2 L2 8 L16 14 M2 8 L46 8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Estamos listos para atenderte</span>
+        <!-- Right Doodle Arrow -->
+        <svg class="w-8 sm:w-12 h-4 stroke-white fill-none stroke-[2.2]" viewBox="0 0 48 16">
+          <path d="M32 2 L46 8 L32 14 M46 8 L2 8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 8. FOOTER INFERIOR                         -->
+  <!-- ========================================== -->
+  <footer id="contacto" class="bg-[#FDCC02] border-t-2 border-black/15 py-8 sm:py-10 text-black relative" style="background-image: url('assets/28566.png'); background-repeat: repeat; background-size: cover; background-position: center;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Row: Logo, Socials & Hashtag -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-black/15">
+        
+        <!-- Left: Circular Logo & Brand Name -->
+        <div class="flex items-center gap-3.5">
+          <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-black shadow-md bg-[#FDCC02] shrink-0">
+            <img src="assets/28560.jpg" alt="Logo Burgueros Neza" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h3 class="font-comic text-xl text-black leading-tight">Burgueros Neza</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-800">Neza, Edomex</p>
+          </div>
+        </div>
+
+        <!-- Center: Social Media Links (Circular Black Icons) -->
+        <div class="flex items-center gap-3.5 sm:gap-4 md:border-x md:border-black/20 md:px-8 py-1">
+          
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/burgueros.neza?stkn=MTYxZWh0MzJiaTBqZQ==" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Instagram Burgueros Neza"
+             class="w-10 h-10 rounded-full bg-black text-[#FDCC02] flex items-center justify-center hover:bg-neutral-800 hover:scale-110 transition-all shadow">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://facebook.com" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Facebook Burgueros Neza"
+             class="w-10 h-10 rounded-full bg-black text-[#FDCC02] flex items-center justify-center hover:bg-neutral-800 hover:scale-110 transition-all shadow">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://tiktok.com" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="TikTok Burgueros Neza"
+             class="w-10 h-10 rounded-full bg-black text-[#FDCC02] flex items-center justify-center hover:bg-neutral-800 hover:scale-110 transition-all shadow">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+
+          <!-- WhatsApp Icon Link -->
+          <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="WhatsApp Burgueros Neza"
+             class="w-10 h-10 rounded-full bg-black text-[#FDCC02] flex items-center justify-center hover:bg-neutral-800 hover:scale-110 transition-all shadow">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+          </a>
+
+        </div>
+
+        <!-- Right: Hashtag & Hand-drawn Crown Doodle -->
+        <div class="flex items-center gap-3">
+          <span class="font-comic text-xl text-black tracking-wider">#BurguerosNeza</span>
+          <svg class="w-8 h-6 text-black fill-none stroke-black stroke-[3]" viewBox="0 0 60 40">
+            <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Complete Address & Copyright -->
+      <div class="pt-5 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left text-xs sm:text-sm font-semibold text-neutral-800">
+        <a href="https://maps.google.com/?q=Lago+Constanza+241-b,+Agua+Azul,+57500+Cdad.+Nezahualc%C3%B3yotl,+M%C3%A9x." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="hover:underline flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-black shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Lago Constanza 241-b, Agua Azul, 57500 Cdad. Nezahualcóyotl, Méx.</span>
+        </a>
+        <p class="text-neutral-700">
+          © 2026 Ver Burgueros Neza. Con hambre, sin miedo.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================== -->
+  <!-- 9. FLOATING STICKY WHATSAPP BUTTON         -->
+  <!-- ========================================== -->
+  <aside class="fixed bottom-6 right-6 z-50 flex items-center gap-3" aria-label="Contacto Rápido por WhatsApp">
+    <div class="hidden sm:block bg-black text-[#FDCC02] text-xs font-bold py-1.5 px-3.5 rounded-full shadow-lg border border-[#FDCC02]/30">
+      ¡Estamos atendiendo en Neza! 🔥
+    </div>
+    <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Pedir ahora por WhatsApp"
+       class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl pulse-whatsapp transform hover:scale-110 active:scale-95 transition-all">
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+      </svg>
+    </a>
+  </aside>
+
+
+  <!-- ========================================== -->
+  <!-- 10. INTERACTIVE MENU MODAL                 -->
+  <!-- ========================================== -->
+  <div id="menu-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 modal-backdrop overflow-y-auto">
+    <div class="bg-[#121214] border border-neutral-800 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-5 border-b border-neutral-800 flex items-center justify-between bg-[#161619]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full overflow-hidden border border-[#FDCC02]/40 bg-[#FDCC02]">
+            <img src="assets/28560.jpg" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h3 class="font-comic text-2xl text-white tracking-wide">MENÚ BURGUEROS NEZA</h3>
+            <p class="text-xs text-neutral-400">Selecciona tu antojo y ordénalo directo a WhatsApp</p>
+          </div>
+        </div>
+        <button id="modal-close-btn" class="w-9 h-9 rounded-full bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="px-6 py-3 bg-[#141417] border-b border-neutral-800 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        <button data-category="todas" class="menu-tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-[#FDCC02] text-black">Todas</button>
+        <button data-category="hamburguesas" class="menu-tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-neutral-800 text-white hover:bg-neutral-700">Hamburguesas</button>
+        <button data-category="papas" class="menu-tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-neutral-800 text-white hover:bg-neutral-700">Papas</button>
+        <button data-category="bebidas" class="menu-tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-neutral-800 text-white hover:bg-neutral-700">Bebidas</button>
+        <button data-category="extras" class="menu-tab-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-neutral-800 text-white hover:bg-neutral-700">Extras</button>
+      </div>
+
+      <!-- Modal Items Grid -->
+      <div id="modal-items-container" class="p-6 overflow-y-auto space-y-4 max-h-[60vh]">
+        <!-- Populated via script.js -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-neutral-800 bg-[#161619] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
+        <span>📍 Lago Constanza 241-b, Agua Azul, Nezahualcóyotl</span>
+        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Tengo%20una%20pregunta%20sobre%20el%20menú" target="_blank" class="text-[#FDCC02] hover:underline font-bold flex items-center gap-1">
+          <span>¿Dudas con tu orden? Escríbenos al 5655263382</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript bundle -->
+  <script src="script.js"></script>
+</body>
+</html>

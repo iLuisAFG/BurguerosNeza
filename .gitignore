@@ -1,0 +1,10 @@
+# AI Assistant & IDE config
+.gemini/
+.agent/
+.agents/
+.aider-desk/
+skills-lock.json
+
+# OS temp files
+.DS_Store
+Thumbs.db
