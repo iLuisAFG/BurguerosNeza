@@ -53,10 +53,11 @@
       </a>
 
       <!-- Center Navigation Links (Desktop) -->
-      <nav class="hidden md:flex items-center gap-8 lg:gap-12">
+      <nav class="hidden md:flex items-center gap-7 lg:gap-10">
         <a href="#inicio" class="nav-link-active font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Inicio</a>
         <a href="#menu" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Menú</a>
         <a href="#nosotros" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Nosotros</a>
+        <a href="#ubicacion" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Ubicación</a>
         <a href="#contacto" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Contacto</a>
       </nav>
 
@@ -94,6 +95,7 @@
       <a href="#inicio" class="block font-bold text-lg text-black py-2 border-b border-black/5">Inicio</a>
       <a href="#menu" class="block font-bold text-lg text-black py-2 border-b border-black/5">Menú</a>
       <a href="#nosotros" class="block font-bold text-lg text-black py-2 border-b border-black/5">Nosotros</a>
+      <a href="#ubicacion" class="block font-bold text-lg text-black py-2 border-b border-black/5">Ubicación</a>
       <a href="#contacto" class="block font-bold text-lg text-black py-2 border-b border-black/5">Contacto</a>
       <div class="pt-2">
         <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" target="_blank" class="w-full bg-[#0E0E10] text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow">
@@ -626,22 +628,22 @@
   </section>
 
 
-  <!-- ========================================== -->
-  <!-- 7. LLAMADA A LA ACCIÓN FINAL (CTA BANNER)  -->
-  <!-- ========================================== -->
-  <section class="bg-[#0E0E10] text-white py-14 sm:py-16 relative overflow-hidden">
+  <!-- ============================================================== -->
+  <!-- 7. LLAMADA A LA ACCIÓN & SUCURSAL GOOGLE MAPS (INTERACTIVO)      -->
+  <!-- ============================================================== -->
+  <section id="ubicacion" class="bg-[#0E0E10] text-white pt-14 pb-16 sm:pt-16 sm:pb-24 relative overflow-hidden border-b-2 border-neutral-900">
     
     <!-- Background Burger Doodle Left -->
-    <div class="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 opacity-80 pointer-events-none hidden sm:block">
-      <img src="assets/cta-burger-doodle.png" alt="Doodle Hamburguesa" class="w-36 md:w-48 lg:w-56 h-auto">
+    <div class="absolute left-2 sm:left-8 top-16 opacity-30 lg:opacity-50 pointer-events-none hidden sm:block">
+      <img src="assets/cta-burger-doodle.png" alt="Doodle Hamburguesa" class="w-32 md:w-44 lg:w-52 h-auto">
     </div>
 
     <!-- Background Fries Doodle Right -->
-    <div class="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 opacity-80 pointer-events-none hidden sm:block">
-      <img src="assets/cta-fries-doodle.png" alt="Doodle Papas Fritas" class="w-32 md:w-44 lg:w-52 h-auto">
+    <div class="absolute right-2 sm:right-8 top-16 opacity-30 lg:opacity-50 pointer-events-none hidden sm:block">
+      <img src="assets/cta-fries-doodle.png" alt="Doodle Papas Fritas" class="w-28 md:w-40 lg:w-48 h-auto">
     </div>
 
-    <!-- Center Content -->
+    <!-- Center Content: "¿SE TE ANTOJÓ?" -->
     <div class="max-w-4xl mx-auto px-4 text-center relative z-10 flex flex-col items-center">
       
       <!-- Crown Doodle -->
@@ -690,6 +692,252 @@
       </div>
 
     </div>
+
+    <!-- Visual Separator Pill: Visítanos en Sucursal -->
+    <div class="w-full max-w-5xl mx-auto my-10 sm:my-14 px-4 flex items-center justify-center relative z-10">
+      <div class="h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent w-full"></div>
+      <div class="absolute bg-[#18181b] border border-[#FDCC02]/40 px-4 py-1.5 rounded-full flex items-center gap-2 text-xs sm:text-sm font-bold text-[#FDCC02] shadow-xl tracking-wide uppercase">
+        <span>📍</span>
+        <span>¿Prefieres caerle al local? ¡Aquí nos encontramos!</span>
+      </div>
+    </div>
+
+    <!-- MÓDULO INTERACTIVO DE UBICACIÓN & GOOGLE MAPS -->
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 text-left">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDCC02]/10 border border-[#FDCC02]/30 text-[#FDCC02] text-xs font-extrabold uppercase tracking-widest mb-2">
+            <span class="w-2 h-2 rounded-full bg-[#FDCC02] animate-pulse"></span>
+            Sucursal Oficial Burgueros Neza
+          </div>
+          <h3 class="font-comic text-3xl sm:text-4xl text-white tracking-wide leading-tight">
+            ENCUÉNTRANOS EN GOOGLE MAPS
+          </h3>
+          <p class="text-neutral-400 text-xs sm:text-sm mt-1 max-w-xl">
+            Visítanos en colonia Agua Azul, traza tu ruta en tiempo real o manda WhatsApp para pasar a recoger tu pedido caliente y sin filas.
+          </p>
+        </div>
+
+        <!-- Live Status Badge (Dynamic via JS) -->
+        <div id="branch-status-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold shrink-0 self-start sm:self-auto shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>🟢 Abierto Hoy • 2:00 PM – 11:00 PM</span>
+        </div>
+      </div>
+
+      <!-- 2-Column Grid: Menú Interactivo (Left) + Google Maps Embed (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- LEFT: Menú Interactivo de la Sucursal -->
+        <div class="lg:col-span-5 bg-[#141417] border border-neutral-800 hover:border-[#FDCC02]/40 transition-all rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden text-left">
+          
+          <!-- Background Subtle Glow -->
+          <div class="absolute -top-12 -right-12 w-36 h-36 bg-[#FDCC02]/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div>
+            <!-- Header of Card -->
+            <div class="flex items-center justify-between gap-3 pb-4 mb-4 border-b border-neutral-800/80">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-[#FDCC02]/40 bg-[#FDCC02] shrink-0 shadow-sm">
+                  <img src="assets/28560.jpg" alt="Logo Burgueros" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="font-comic text-lg text-white leading-tight">Burgueros Neza</h4>
+                  <p class="text-xs text-[#FDCC02] font-semibold">Sucursal Agua Azul</p>
+                </div>
+              </div>
+              <span class="text-[11px] font-bold text-neutral-400 bg-neutral-900 border border-neutral-800 px-2.5 py-1 rounded-full">
+                Edomex
+              </span>
+            </div>
+
+            <!-- Tab Buttons: Ubicación | Horarios | Servicios -->
+            <div class="grid grid-cols-3 gap-1.5 p-1 bg-black/60 rounded-2xl border border-neutral-800/80 mb-5 text-xs font-bold">
+              <button type="button" id="tab-btn-ubicacion" onclick="switchLocationTab('ubicacion')" class="location-tab-btn py-2 px-2 rounded-xl text-center transition-all bg-[#FDCC02] text-black shadow font-extrabold flex items-center justify-center gap-1.5 focus:outline-none">
+                <span>📍</span> <span class="truncate">Dirección</span>
+              </button>
+              <button type="button" id="tab-btn-horarios" onclick="switchLocationTab('horarios')" class="location-tab-btn py-2 px-2 rounded-xl text-center transition-all text-neutral-400 hover:text-white flex items-center justify-center gap-1.5 focus:outline-none">
+                <span>🕒</span> <span class="truncate">Horarios</span>
+              </button>
+              <button type="button" id="tab-btn-servicios" onclick="switchLocationTab('servicios')" class="location-tab-btn py-2 px-2 rounded-xl text-center transition-all text-neutral-400 hover:text-white flex items-center justify-center gap-1.5 focus:outline-none">
+                <span>🍔</span> <span class="truncate">Servicios</span>
+              </button>
+            </div>
+
+            <!-- TAB PANE 1: UBICACIÓN -->
+            <div id="pane-ubicacion" class="location-pane block space-y-4">
+              <div class="bg-black/50 border border-neutral-800/90 rounded-2xl p-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-[#FDCC02]/15 border border-[#FDCC02]/30 text-[#FDCC02] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h5 class="font-bold text-white text-sm sm:text-base">Lago Constanza 241-b</h5>
+                    <p class="text-xs text-neutral-300 mt-1 leading-relaxed">
+                      Colonia Agua Azul, C.P. 57500, Ciudad Nezahualcóyotl, Estado de México.
+                    </p>
+                    <p class="text-[11px] text-[#FDCC02] mt-2 font-medium flex items-center gap-1">
+                      <span>📌</span> A unas cuadras de Av. Chimalhuacán y Laguna de Términos
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Buttons: Copiar Dirección & Cómo Llegar -->
+              <div class="grid grid-cols-2 gap-2.5 pt-1">
+                <!-- Copiar Dirección -->
+                <button type="button" id="copy-address-btn" onclick="copyBranchAddress()" class="w-full bg-neutral-800/90 hover:bg-neutral-700 text-neutral-200 hover:text-white text-xs font-bold py-2.5 px-3 rounded-xl border border-neutral-700/80 transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow">
+                  <svg id="copy-icon" class="w-3.5 h-3.5 text-[#FDCC02] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                  <span id="copy-text">Copiar Dirección</span>
+                </button>
+
+                <!-- Cómo llegar en Google Maps -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Lago+Constanza+241-b,+Agua+Azul,+57500+Cdad.+Nezahualc%C3%B3yotl,+M%C3%A9x." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="w-full bg-[#FDCC02] hover:bg-[#e5b802] text-black text-xs font-extrabold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow">
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                  </svg>
+                  <span>Cómo Llegar</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- TAB PANE 2: HORARIOS -->
+            <div id="pane-horarios" class="location-pane hidden space-y-3">
+              <div class="bg-black/50 border border-neutral-800/90 rounded-2xl p-4 space-y-2.5">
+                <div class="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-neutral-800/60">
+                  <span class="text-neutral-300 font-semibold">Martes a Domingo</span>
+                  <span class="font-extrabold text-[#FDCC02]">2:00 PM – 11:00 PM</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-neutral-800/60">
+                  <span class="text-neutral-400 font-medium">Lunes</span>
+                  <span class="text-red-400 font-bold bg-red-500/10 px-2 py-0.5 rounded-full text-[11px]">Cerrado (Descanso)</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm py-1">
+                  <span class="text-neutral-300 font-semibold">Último pedido a cocina</span>
+                  <span class="text-white font-bold">10:45 PM</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-neutral-400 leading-relaxed italic">
+                * Las hamburguesas se preparan al momento sobre la plancha bien caliente para asegurar la máxima frescura.
+              </p>
+            </div>
+
+            <!-- TAB PANE 3: SERVICIOS -->
+            <div id="pane-servicios" class="location-pane hidden space-y-2.5">
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 bg-black/40 border border-neutral-800/80 rounded-xl p-3">
+                  <span class="text-xl shrink-0">🍽️</span>
+                  <div>
+                    <h5 class="text-xs font-bold text-white">Comer en el Local</h5>
+                    <p class="text-[11px] text-neutral-400">Ambiente de barrio relajado, buena música y hamburguesas al instante.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-black/40 border border-neutral-800/80 rounded-xl p-3">
+                  <span class="text-xl shrink-0">🥡</span>
+                  <div>
+                    <h5 class="text-xs font-bold text-white">Para Llevar (Pick-Up)</h5>
+                    <p class="text-[11px] text-neutral-400">Haz tu pedido antes por WhatsApp y pasa a recoger sin filas ni demoras.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-black/40 border border-neutral-800/80 rounded-xl p-3">
+                  <span class="text-xl shrink-0">🛵</span>
+                  <div>
+                    <h5 class="text-xs font-bold text-white">A Domicilio en Neza</h5>
+                    <p class="text-[11px] text-neutral-400">Entrega rápida y empaque térmico para que llegue crujiente y caliente.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Card Quick Action: Pedir para recoger -->
+          <div class="mt-5 pt-4 border-t border-neutral-800/80 flex flex-col gap-2.5">
+            <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20para%20recoger%20en%20sucursal%20Lago%20Constanza%20🍔🏃" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02] active:scale-95">
+              <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>Pedir para Recoger en Sucursal</span>
+            </a>
+            <div class="flex items-center justify-between text-[11px] text-neutral-400 px-1">
+              <span>Teléfono: <strong class="text-white">56 5526 3382</strong></span>
+              <span class="text-[#FDCC02] font-semibold">Neza, Edomex</span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT: Embedded Interactive Google Maps -->
+        <div class="lg:col-span-7 bg-[#141417] border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between relative group hover:border-[#FDCC02]/40 transition-all min-h-[380px] sm:min-h-[460px]">
+          
+          <!-- Map Top Overlay Header -->
+          <div class="px-4 py-3 bg-[#18181b]/95 border-b border-neutral-800/80 flex items-center justify-between z-10 backdrop-blur-sm">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-[#FDCC02] p-0.5 overflow-hidden shrink-0 border border-black shadow-sm">
+                <img src="assets/28560.jpg" alt="Logo" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-xs sm:text-sm leading-tight flex items-center gap-1.5">
+                  <span>Burgueros Neza</span>
+                  <span class="text-[9px] sm:text-[10px] bg-[#E62429] text-white px-1.5 py-0.5 rounded font-extrabold uppercase">Oficial</span>
+                </h4>
+                <p class="text-[11px] text-neutral-400 leading-tight">Lago Constanza 241-b, Agua Azul, Nezahualcóyotl</p>
+              </div>
+            </div>
+
+            <!-- Open In Google Maps Button -->
+            <a href="https://maps.google.com/?q=Lago+Constanza+241-b,+Agua+Azul,+57500+Cdad.+Nezahualc%C3%B3yotl,+M%C3%A9x." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Abrir ubicación en Google Maps"
+               class="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#FDCC02] hover:text-[#e5b802] bg-black/70 hover:bg-black px-3 py-1.5 rounded-lg border border-[#FDCC02]/30 transition-all shadow-sm">
+              <span class="hidden sm:inline">Abrir en</span><span>Google Maps</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Embedded Google Maps iframe -->
+          <div class="relative w-full flex-1 min-h-[320px] sm:min-h-[380px] bg-neutral-900">
+            <iframe 
+              title="Mapa de Ubicación de Burgueros Neza en Google Maps"
+              src="https://maps.google.com/maps?q=Lago+Constanza+241-b,+Agua+Azul,+57500+Cdad.+Nezahualc%C3%B3yotl,+M%C3%A9x.&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+              class="w-full h-full min-h-[320px] sm:min-h-[380px] border-0"
+              style="filter: contrast(1.04) saturate(1.08);"
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- Map Bottom Interactive Helper Strip -->
+          <div class="px-4 py-2.5 bg-[#18181b] border-t border-neutral-800 text-[11px] text-neutral-400 flex flex-wrap items-center justify-between gap-2">
+            <span class="flex items-center gap-1 text-neutral-300">
+              <span class="text-[#FDCC02]">📍</span>
+              <span>Ubicación verificada en Google Maps</span>
+            </span>
+            <span class="text-neutral-400 hidden sm:inline">
+              Usa los controles del mapa (+ / -) para hacer zoom o arrastrar con libertad
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
 

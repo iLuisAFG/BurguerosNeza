@@ -254,4 +254,115 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mobileDrawer) mobileDrawer.classList.add('hidden');
     }
   });
+
+  // Initialize branch live status
+  updateBranchStatus();
 });
+
+// ==============================================================
+// GOOGLE MAPS & SUCURSAL INTERACTIVE MODULE
+// ==============================================================
+
+// Switch location menu tabs: Ubicación | Horarios | Servicios
+function switchLocationTab(tabName) {
+  const tabs = ['ubicacion', 'horarios', 'servicios'];
+  
+  tabs.forEach(name => {
+    const btn = document.getElementById(`tab-btn-${name}`);
+    const pane = document.getElementById(`pane-${name}`);
+    if (!btn || !pane) return;
+
+    if (name === tabName) {
+      btn.className = 'location-tab-btn py-2 px-2 rounded-xl text-center transition-all bg-[#FDCC02] text-black shadow font-extrabold flex items-center justify-center gap-1.5 focus:outline-none';
+      pane.classList.remove('hidden');
+      pane.classList.add('block');
+    } else {
+      btn.className = 'location-tab-btn py-2 px-2 rounded-xl text-center transition-all text-neutral-400 hover:text-white flex items-center justify-center gap-1.5 focus:outline-none';
+      pane.classList.add('hidden');
+      pane.classList.remove('block');
+    }
+  });
+}
+
+// Copy branch address to clipboard with animated visual feedback
+function copyBranchAddress() {
+  const address = 'Lago Constanza 241-b, Agua Azul, 57500 Ciudad Nezahualcóyotl, Méx.';
+  const copyBtn = document.getElementById('copy-address-btn');
+  const copyText = document.getElementById('copy-text');
+  const copyIcon = document.getElementById('copy-icon');
+
+  const onCopied = () => {
+    if (copyText) copyText.textContent = '¡Copiada!';
+    if (copyBtn) {
+      copyBtn.classList.add('bg-emerald-600/30', 'border-emerald-500/60', 'text-emerald-300');
+      copyBtn.classList.remove('bg-neutral-800/90', 'text-neutral-200');
+    }
+    if (copyIcon) {
+      copyIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />';
+      copyIcon.classList.remove('text-[#FDCC02]');
+      copyIcon.classList.add('text-emerald-400');
+    }
+
+    setTimeout(() => {
+      if (copyText) copyText.textContent = 'Copiar Dirección';
+      if (copyBtn) {
+        copyBtn.classList.remove('bg-emerald-600/30', 'border-emerald-500/60', 'text-emerald-300');
+        copyBtn.classList.add('bg-neutral-800/90', 'text-neutral-200');
+      }
+      if (copyIcon) {
+        copyIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>';
+        copyIcon.classList.add('text-[#FDCC02]');
+        copyIcon.classList.remove('text-emerald-400');
+      }
+    }, 2500);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(address).then(onCopied).catch(() => {
+      fallbackCopy(address, onCopied);
+    });
+  } else {
+    fallbackCopy(address, onCopied);
+  }
+}
+
+function fallbackCopy(text, callback) {
+  try {
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    if (callback) callback();
+  } catch (err) {
+    console.error('No se pudo copiar el texto', err);
+  }
+}
+
+// Dynamic branch schedule status calculation
+function updateBranchStatus() {
+  const badge = document.getElementById('branch-status-badge');
+  if (!badge) return;
+
+  try {
+    const now = new Date();
+    const day = now.getDay(); // 0 is Sunday, 1 is Monday
+    const hour = now.getHours();
+
+    if (day === 1) {
+      badge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 text-xs font-bold shrink-0 self-start sm:self-auto shadow-sm';
+      badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-400"></span><span>🔴 Hoy Cerrado (Descanso) • Abrimos Mañana 2:00 PM</span>';
+    } else if (hour >= 14 && hour < 23) {
+      badge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold shrink-0 self-start sm:self-auto shadow-sm';
+      badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span><span>🟢 Abierto Ahora • ¡Te esperamos!</span>';
+    } else {
+      badge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-bold shrink-0 self-start sm:self-auto shadow-sm';
+      badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400"></span><span>🟡 Abrimos hoy a las 2:00 PM • ¡Pide tu orden!</span>';
+    }
+  } catch (e) {
+    badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>🟢 Martes a Domingo • 2:00 PM – 11:00 PM</span>';
+  }
+}
