@@ -18,7 +18,7 @@ const OFFICIAL_MENU = [
     badge: 'Incluye Papas Gratis',
     desc: 'Carne especial, queso americano, cebolla caramelizada y aderezo de la casa, en pan brioche hecho a mano.',
     includes: 'Incluye 50g de papas clasicas gratis',
-    img: 'assets/menu-burger.png'
+    img: 'assets/burger-clasica.jpeg'
   },
   {
     id: 'burger-burguera',
@@ -28,7 +28,7 @@ const OFFICIAL_MENU = [
     badge: '★ Favorita Picante',
     desc: 'Carne picante especial, queso americano, cebolla caramelizada y aderezo de la casa, en pan brioche hecho a mano.',
     includes: 'Incluye 50g de papas clasicas gratis',
-    img: 'assets/menu-burger.png'
+    img: 'assets/burger-burguera.jpeg'
   },
   {
     id: 'burger-marrana',
@@ -38,7 +38,7 @@ const OFFICIAL_MENU = [
     badge: 'Doble Carne & Tocino',
     desc: 'Doble carne especial, doble queso americano, tocino, cebolla caramelizada y aderezo de la casa, en pan brioche hecho a mano.',
     includes: 'Incluye 50g de papas clasicas gratis',
-    img: 'assets/menu-burger.png'
+    img: 'assets/burger-marrana.jpeg'
   },
   {
     id: 'burger-conchuda',
@@ -48,7 +48,7 @@ const OFFICIAL_MENU = [
     badge: 'Edición Especial (50 Pzas)',
     desc: 'Carne especial de la casa, queso americano, cebolla caramelizada, aderezo de la casa, en una concha blanca.',
     includes: 'Incluye 50g de papas clasicas gratis',
-    img: 'assets/menu-conchuda.png'
+    img: 'assets/burger-conchuda.jpeg'
   },
 
   // 2. PAPAS A LA FRANCESA (150g de papas a la francesa sazonadas. Hechas a mano.)
@@ -340,17 +340,24 @@ function createProductCardHTML(item) {
   return `
     <div class="bg-[#141416] border border-neutral-800 hover:border-[#FDCC02]/50 transition-all rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between group">
       <div>
-        <div class="relative h-44 sm:h-48 overflow-hidden bg-neutral-900">
-          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105">
-          <div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+        <div class="relative h-48 sm:h-52 overflow-hidden bg-neutral-900 cursor-zoom-in group/img" onclick="expandMenuImage('${item.id}')" title="Click para ver foto en grande">
+          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-108">
+          <div class="absolute top-3 left-3 flex flex-col gap-1 items-start pointer-events-none">
             <span class="bg-[#FDCC02] text-black text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
               ${item.badge}
+            </span>
+          </div>
+          <!-- Click to expand hint overlay on hover -->
+          <div class="absolute inset-0 bg-black/35 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+            <span class="bg-black/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-xl flex items-center gap-1.5 transform translate-y-1 group-hover/img:translate-y-0 transition-transform">
+              <svg class="w-3.5 h-3.5 text-[#FDCC02]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+              <span>Ver en grande</span>
             </span>
           </div>
           <div class="absolute bottom-2 left-2.5 bg-black/75 backdrop-blur-xs px-2 py-0.5 rounded-md border border-white/10 text-[9px] text-neutral-300 font-medium pointer-events-none">
             * Imagen representativa
           </div>
-          <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-xl border border-neutral-700/80">
+          <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-xl border border-neutral-700/80 pointer-events-none">
             <span class="font-comic text-[#FDCC02] text-lg leading-none">$${item.price}</span>
             <span class="text-[10px] text-neutral-300 font-sans">MXN</span>
           </div>
@@ -432,9 +439,17 @@ function renderMenuItemsModal(category = 'todas') {
     return `
       <div class="bg-[#18181b] border border-neutral-800 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between hover:border-[#FDCC02]/40 transition-colors">
         <div class="flex gap-3 sm:gap-4 items-start">
-          <div class="flex flex-col items-center shrink-0">
-            <img src="${item.img}" alt="${item.name}" class="w-16 h-16 sm:w-24 sm:h-24 rounded-xl object-cover bg-neutral-900 border border-neutral-700">
-            <span class="text-[8px] sm:text-[9px] text-neutral-500 mt-1 font-medium text-center leading-none">* Ilustrativa</span>
+          <div class="flex flex-col items-center shrink-0 cursor-zoom-in group/thumb" onclick="expandMenuImage('${item.id}')" title="Click para ver foto en grande">
+            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 border border-neutral-700">
+              <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover transform transition-transform duration-300 group-hover/thumb:scale-110">
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                <svg class="w-4 h-4 text-[#FDCC02]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+              </div>
+            </div>
+            <span class="text-[8px] sm:text-[9px] text-neutral-400 group-hover/thumb:text-[#FDCC02] mt-1 font-medium text-center leading-none flex items-center gap-0.5 transition-colors">
+              <span>🔍</span>
+              <span>Ampliar</span>
+            </span>
           </div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-1">
@@ -506,6 +521,88 @@ function closeMenuImageModal() {
   if (!modal) return;
   modal.classList.add('hidden');
   document.body.classList.remove('overflow-hidden');
+}
+
+// Expand / Lightbox Menu Image Modal
+function expandMenuImage(itemId) {
+  const item = OFFICIAL_MENU.find(i => i.id === itemId);
+  if (!item) return;
+
+  const modal = document.getElementById('image-lightbox-modal');
+  const card = document.getElementById('lightbox-card');
+  const imgEl = document.getElementById('lightbox-img');
+  const titleEl = document.getElementById('lightbox-title');
+  const badgeEl = document.getElementById('lightbox-badge');
+  const descEl = document.getElementById('lightbox-desc');
+  const includesEl = document.getElementById('lightbox-includes');
+  const priceEl = document.getElementById('lightbox-price');
+  const addBtn = document.getElementById('lightbox-add-btn');
+
+  if (!modal || !imgEl) return;
+
+  imgEl.src = item.img;
+  imgEl.alt = item.name;
+  if (titleEl) titleEl.textContent = item.name;
+  if (badgeEl) badgeEl.textContent = item.badge;
+  if (descEl) descEl.textContent = item.desc;
+
+  if (includesEl) {
+    if (item.includes) {
+      includesEl.textContent = '★ ' + item.includes;
+      includesEl.classList.remove('hidden');
+    } else {
+      includesEl.classList.add('hidden');
+    }
+  }
+
+  if (priceEl) priceEl.textContent = `$${item.price} MXN`;
+
+  if (addBtn) {
+    addBtn.onclick = function() {
+      addToCart(item.id);
+      closeLightboxModal();
+    };
+  }
+
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+
+  requestAnimationFrame(() => {
+    if (card) {
+      card.classList.remove('scale-95', 'opacity-0');
+      card.classList.add('scale-100', 'opacity-100');
+    }
+  });
+}
+
+function closeLightboxModal() {
+  const modal = document.getElementById('image-lightbox-modal');
+  const card = document.getElementById('lightbox-card');
+  if (!modal) return;
+
+  if (card) {
+    card.classList.remove('scale-100', 'opacity-100');
+    card.classList.add('scale-95', 'opacity-0');
+  }
+
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    const cartModal = document.getElementById('cart-modal');
+    const menuModal = document.getElementById('menu-modal');
+    const menuImgModal = document.getElementById('menu-image-modal');
+    const isOtherModalOpen = (cartModal && !cartModal.classList.contains('hidden')) ||
+                             (menuModal && !menuModal.classList.contains('hidden')) ||
+                             (menuImgModal && !menuImgModal.classList.contains('hidden'));
+    if (!isOtherModalOpen) {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, 180);
+}
+
+function handleLightboxBackdropClick(event) {
+  if (event.target.id === 'image-lightbox-modal') {
+    closeLightboxModal();
+  }
 }
 
 // Cart Modal Open/Close
@@ -610,9 +707,11 @@ function renderCartModal() {
         <!-- Top row: Product image, title, option, and delete button -->
         <div class="flex items-start justify-between gap-3">
           <div class="flex items-start gap-3 min-w-0 flex-1">
-            <div class="flex flex-col items-center shrink-0">
-              <img src="${item.img}" alt="${item.name}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover bg-neutral-900 border border-neutral-700">
-              <span class="text-[8px] text-neutral-500 mt-0.5 font-medium leading-none text-center">* Ilustrativa</span>
+            <div class="flex flex-col items-center shrink-0 cursor-zoom-in group/cartthumb" onclick="expandMenuImage('${item.id}')" title="Click para ver foto en grande">
+              <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-neutral-900 border border-neutral-700">
+                <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover transform transition-transform duration-300 group-hover/cartthumb:scale-110">
+              </div>
+              <span class="text-[8px] text-neutral-400 group-hover/cartthumb:text-[#FDCC02] mt-0.5 font-medium leading-none text-center">🔍 Ver</span>
             </div>
             <div class="min-w-0 flex-1">
               <h5 class="font-bold text-white text-sm sm:text-base leading-snug">
@@ -928,6 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenuModal();
       closeCartModal();
       closeMenuImageModal();
+      closeLightboxModal();
       if (mobileDrawer) mobileDrawer.classList.add('hidden');
     }
   });

@@ -1239,6 +1239,56 @@
     </div>
   </div>
 
+  <!-- ========================================== -->
+  <!-- 13. LIGHTBOX MODAL PARA EXPANDIR IMAGEN    -->
+  <!-- ========================================== -->
+  <div id="image-lightbox-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md modal-backdrop overflow-y-auto" onclick="handleLightboxBackdropClick(event)">
+    <div class="bg-[#121214] border border-neutral-700/80 rounded-3xl max-w-2xl w-full flex flex-col shadow-2xl overflow-hidden my-auto text-left relative transform transition-all duration-300 scale-95 opacity-0" id="lightbox-card">
+      
+      <!-- Top header with badge and close button -->
+      <div class="px-5 py-3.5 border-b border-neutral-800 flex items-center justify-between bg-[#161619]">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="lightbox-badge" class="bg-[#FDCC02] text-black text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+            Favorita
+          </span>
+          <h3 id="lightbox-title" class="font-comic text-lg sm:text-xl text-white truncate">
+            Clásica
+          </h3>
+        </div>
+        <button type="button" onclick="closeLightboxModal()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 flex items-center justify-center transition-colors shrink-0" aria-label="Cerrar vista grande">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Main expanded image -->
+      <div class="relative bg-neutral-950 flex items-center justify-center overflow-hidden max-h-[60vh] sm:max-h-[66vh] p-2 sm:p-3">
+        <img id="lightbox-img" src="" alt="Imagen ampliada" class="w-full h-auto max-h-[58vh] sm:max-h-[64vh] object-contain rounded-xl shadow-lg transition-transform duration-300">
+        <div class="absolute bottom-3 left-3 bg-black/75 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/10 text-[10px] text-neutral-300 pointer-events-none">
+          * Fotografía representativa del producto
+        </div>
+      </div>
+
+      <!-- Bottom details & Add to cart button -->
+      <div class="p-4 sm:p-5 border-t border-neutral-800 bg-[#161619] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="min-w-0 flex-1">
+          <p id="lightbox-desc" class="text-xs sm:text-sm text-neutral-300 leading-relaxed"></p>
+          <p id="lightbox-includes" class="text-xs text-[#FDCC02] font-semibold mt-1 hidden"></p>
+        </div>
+        <div class="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-neutral-800">
+          <div class="text-left sm:text-right">
+            <span class="text-[10px] text-neutral-400 block leading-tight">Precio:</span>
+            <span id="lightbox-price" class="font-comic text-xl sm:text-2xl text-[#FDCC02] leading-tight">$90 MXN</span>
+          </div>
+          <button id="lightbox-add-btn" type="button" class="bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 sm:gap-2 shadow transition-transform hover:scale-105 active:scale-95">
+            <svg class="w-4 h-4 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            <span>Agregar al Carrito</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- JavaScript bundle -->
   <script src="script.js"></script>
 </body>
