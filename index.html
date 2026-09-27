@@ -53,7 +53,7 @@
       </a>
 
       <!-- Center Navigation Links (Desktop) -->
-      <nav class="hidden md:flex items-center gap-7 lg:gap-10">
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8">
         <a href="#inicio" class="nav-link-active font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Inicio</a>
         <a href="#menu" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Menú</a>
         <a href="#nosotros" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Nosotros</a>
@@ -61,14 +61,23 @@
         <a href="#contacto" class="font-bold text-black text-base lg:text-lg hover:opacity-80 transition-opacity">Contacto</a>
       </nav>
 
-      <!-- Right Action CTA & Mobile Trigger -->
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+      <!-- Right Action CTA & Cart Trigger -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Cart Button -->
+        <button id="nav-cart-btn" onclick="openCartModal()" class="relative bg-black text-[#FDCC02] hover:bg-neutral-800 font-extrabold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full flex items-center gap-2 shadow-md transition-all transform hover:scale-105 active:scale-95 border border-black" aria-label="Ver Carrito de Pedido">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#FDCC02]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="hidden sm:inline text-xs sm:text-sm font-black text-white">Carrito</span>
+          <span id="nav-cart-badge" class="bg-[#E62429] text-white text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center -ml-0.5">0</span>
+        </button>
+
+        <a href="https://wa.me/525655263382?text=Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-md transition-all transform hover:scale-105 active:scale-95">
+           class="hidden lg:flex bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full items-center gap-2 shadow-md transition-all transform hover:scale-105 active:scale-95">
           <!-- WhatsApp Icon -->
-          <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white fill-current" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>
           <span>Pide por WhatsApp</span>
@@ -97,8 +106,18 @@
       <a href="#nosotros" class="block font-bold text-lg text-black py-2 border-b border-black/5">Nosotros</a>
       <a href="#ubicacion" class="block font-bold text-lg text-black py-2 border-b border-black/5">Ubicación</a>
       <a href="#contacto" class="block font-bold text-lg text-black py-2 border-b border-black/5">Contacto</a>
+      
+      <!-- Mobile Cart Drawer Option -->
+      <button onclick="openCartModal(); document.getElementById('mobile-drawer').classList.add('hidden');" class="w-full flex items-center justify-between font-bold text-lg text-black py-2 border-b border-black/5 text-left">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          <span>Ver Mi Carrito</span>
+        </span>
+        <span id="mobile-cart-badge" class="bg-[#E62429] text-white text-xs font-black px-2.5 py-0.5 rounded-full">0</span>
+      </button>
+
       <div class="pt-2">
-        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" target="_blank" class="w-full bg-[#0E0E10] text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow">
+        <a href="https://wa.me/525655263382?text=Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido" target="_blank" class="w-full bg-[#0E0E10] text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow">
           <span>Pide por WhatsApp</span>
         </a>
       </div>
@@ -164,7 +183,7 @@
 
           <!-- Hero CTA Button -->
           <div class="pt-2">
-            <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+            <a href="https://wa.me/525655263382?text=Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido" 
                target="_blank" 
                rel="noopener noreferrer" 
                class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-lg sm:text-xl px-8 sm:px-10 py-4 rounded-full inline-flex items-center gap-3 shadow-xl transform transition-all hover:scale-105 active:scale-95 group">
@@ -275,147 +294,90 @@
 
 
   <!-- ========================================== -->
-  <!-- 4. SECCIÓN "NUESTRO MENÚ"                  -->
+  <!-- 4. SECCIÓN "NUESTRO MENÚ" (OFICIAL)        -->
   <!-- ========================================== -->
   <section id="menu" class="bg-[#FCF4E8] py-14 sm:py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-        
-        <!-- Left Column: Title & Description -->
-        <div class="lg:col-span-4 flex flex-col items-start pt-2">
-          
+      <!-- Top Header & Promo Banner -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div>
           <!-- Doodle Crown -->
           <div class="mb-1">
             <svg class="w-11 h-8 text-black fill-[#FDCC02] stroke-black stroke-[3.5]" viewBox="0 0 60 40">
               <path d="M6 34 L12 12 L24 24 L32 8 L40 24 L52 12 L56 34 Z" stroke-linejoin="round" stroke-linecap="round"/>
             </svg>
           </div>
-
           <!-- Section Title with Red Brush Underline -->
-          <h2 class="font-comic text-5xl sm:text-6xl text-black leading-none uppercase tracking-tight transform -rotate-2">
-            NUESTRO
+          <h2 class="font-comic text-4xl sm:text-6xl text-black leading-none uppercase tracking-tight transform -rotate-1">
+            NUESTRO <span class="brush-underline-red">MENÚ OFICIAL</span>
           </h2>
-          <div class="mb-4">
-            <span class="brush-underline-red font-comic text-6xl sm:text-7xl text-black leading-none uppercase tracking-tight transform -rotate-2">
-              MENÚ
-            </span>
-          </div>
-
-          <p class="text-neutral-700 text-base sm:text-lg font-medium leading-relaxed max-w-sm mb-7">
-            Hamburguesas, papas, bebidas y mucho más. ¡Todo el sabor de Neza en un solo lugar!
+          <p class="text-neutral-700 text-sm sm:text-base font-semibold mt-2 max-w-lg">
+            Con hambre, sin miedo. Agrega tus antojitos al carrito y manda tu orden directa por WhatsApp sin comisiones ni intermediarios.
           </p>
+        </div>
 
-          <!-- "Ver menú completo ->" Button -->
-          <button onclick="openMenuModal('todas')" class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-bold text-base px-7 py-3.5 rounded-full inline-flex items-center gap-3 shadow-lg transform transition-all hover:scale-105 active:scale-95 group">
-            <span>Ver menú completo</span>
-            <svg class="w-5 h-5 text-white transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+        <!-- Action Buttons: Ver imagen original & Ver carrito -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button type="button" onclick="openMenuImageModal()" class="bg-white hover:bg-neutral-100 text-black border-2 border-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-transform hover:scale-105 active:scale-95">
+            <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Ver Menú Original (Imagen)</span>
+          </button>
+          
+          <button type="button" onclick="openCartModal()" class="bg-[#0E0E10] hover:bg-neutral-900 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-full inline-flex items-center gap-2.5 shadow-md transition-transform hover:scale-105 active:scale-95">
+            <svg class="w-4 h-4 text-[#FDCC02]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span>Ver Carrito (<span class="header-cart-qty">0</span>)</span>
           </button>
         </div>
+      </div>
 
-        <!-- Right Column: 4 Dark Cards Grid -->
-        <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
-          
-          <!-- Card 1: HAMBURGUESAS -->
-          <div onclick="openMenuModal('hamburguesas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
-            <div>
-              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
-                <img src="assets/menu-burger.png" alt="Hamburguesas Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
-              </div>
-              <div class="p-3.5 sm:p-5">
-                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
-                  HAMBURGUESAS
-                </h3>
-                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
-                  Clásicas, especiales y más.
-                </p>
-              </div>
-            </div>
-            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
+      <!-- FREE FRIES PROMO STRIP (From the Official Menu!) -->
+      <div class="bg-[#FDCC02] border-2 border-black rounded-2xl p-4 sm:p-5 shadow-[4px_4px_0px_#000] mb-8 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
+        <div class="flex items-center gap-3 sm:gap-4 text-center md:text-left">
+          <div class="w-12 h-12 rounded-full bg-[#E62429] text-white flex items-center justify-center shrink-0 border-2 border-black shadow">
+            <span class="font-comic text-2xl leading-none">★</span>
           </div>
-
-          <!-- Card 2: PAPAS -->
-          <div onclick="openMenuModal('papas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
-            <div>
-              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
-                <img src="assets/menu-fries.png" alt="Papas Fritas Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
-              </div>
-              <div class="p-3.5 sm:p-5">
-                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
-                  PAPAS
-                </h3>
-                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
-                  Crujientes y deliciosas.
-                </p>
-              </div>
-            </div>
-            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
+          <div>
+            <h3 class="font-comic text-xl sm:text-2xl text-black leading-tight">
+              ¡TODAS LAS HAMBURGUESAS INCLUYEN 50G DE PAPAS CLÁSICAS GRATIS!
+            </h3>
+            <p class="text-xs sm:text-sm font-bold text-neutral-900">
+              Precios oficiales para Pickup • Horario de servicio: 2:00 PM a 10:00 PM
+            </p>
           </div>
-
-          <!-- Card 3: BEBIDAS -->
-          <div onclick="openMenuModal('bebidas')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
-            <div>
-              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
-                <img src="assets/menu-drinks.png" alt="Bebidas Refrescantes Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
-              </div>
-              <div class="p-3.5 sm:p-5">
-                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
-                  BEBIDAS
-                </h3>
-                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
-                  Refresca tu hamburguesa.
-                </p>
-              </div>
-            </div>
-            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: EXTRAS -->
-          <div onclick="openMenuModal('extras')" class="menu-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group border border-neutral-800 shadow-md">
-            <div>
-              <div class="h-40 sm:h-44 overflow-hidden bg-neutral-900">
-                <img src="assets/menu-extras.png" alt="Extras y Boneless Burgueros" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
-              </div>
-              <div class="p-3.5 sm:p-5">
-                <h3 class="font-comic text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
-                  EXTRAS
-                </h3>
-                <p class="text-neutral-400 text-xs sm:text-sm mt-1.5 leading-snug">
-                  Tenders, alitas, boneless y más.
-                </p>
-              </div>
-            </div>
-            <div class="p-3.5 sm:p-5 pt-0 flex justify-end">
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDCC02] flex items-center justify-center menu-btn-arrow shadow">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
         </div>
+        <div class="shrink-0 flex items-center gap-2">
+          <span class="bg-black text-[#FDCC02] font-extrabold text-xs uppercase px-3 py-1.5 rounded-full border border-black">
+            Neza Pesa
+          </span>
+          <span class="bg-[#E62429] text-white font-extrabold text-xs uppercase px-3 py-1.5 rounded-full border border-black">
+            Comida Rifada
+          </span>
+        </div>
+      </div>
 
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-3 mb-8">
+        <button type="button" data-filter="todas" onclick="filterMenu('todas')" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all bg-[#0E0E10] text-white shadow-md active:scale-95">
+          Todas las Opciones
+        </button>
+        <button type="button" data-filter="hamburguesas" onclick="filterMenu('hamburguesas')" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all bg-white text-black border border-black/20 hover:border-black active:scale-95">
+          Hamburguesas
+        </button>
+        <button type="button" data-filter="papas" onclick="filterMenu('papas')" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all bg-white text-black border border-black/20 hover:border-black active:scale-95">
+          Papas a la Francesa
+        </button>
+        <button type="button" data-filter="bebidas" onclick="filterMenu('bebidas')" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all bg-white text-black border border-black/20 hover:border-black active:scale-95">
+          Bebidas & Malteadas
+        </button>
+        <button type="button" data-filter="extras" onclick="filterMenu('extras')" class="menu-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all bg-white text-black border border-black/20 hover:border-black active:scale-95">
+          Postres & Extras
+        </button>
+      </div>
+
+      <!-- Menu Items Grid (Rendered dynamically via script.js) -->
+      <div id="menu-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+        <!-- Products populated from OFFICIAL_MENU via script.js -->
       </div>
 
     </div>
@@ -662,8 +624,8 @@
         <span class="block w-2.5 sm:w-3 h-8 sm:h-12 bg-[#E62429] rounded-full transform rotate-12"></span>
       </div>
 
-      <!-- CTA Yellow Button -->
-      <a href="https://wa.me/525655263382?text=¡Hola!%20Se%20me%20antojaron%20unas%20hamburguesas%20de%20Burgueros%20Neza%20🍔🍟%20¿Me%20pasan%20la%20carta%3F" 
+      <!-- CTA Yellow Button (Emoji-free WhatsApp URL) -->
+      <a href="https://wa.me/525655263382?text=Hola!%20Se%20me%20antojaron%20unas%20hamburguesas%20de%20Burgueros%20Neza.%20Me%20pasan%20la%20carta%3F" 
          target="_blank" 
          rel="noopener noreferrer" 
          class="bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-base sm:text-xl px-8 sm:px-12 py-3.5 sm:py-4 rounded-full inline-flex items-center gap-3 shadow-2xl transform transition-all hover:scale-105 active:scale-95 group mb-5">
@@ -723,7 +685,7 @@
         <!-- Live Status Badge (Dynamic via JS) -->
         <div id="branch-status-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold shrink-0 self-start sm:self-auto shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>🟢 Abierto Hoy • 2:00 PM – 11:00 PM</span>
+          <span>🟢 Abierto Hoy • 2:00 PM – 10:00 PM</span>
         </div>
       </div>
 
@@ -816,7 +778,7 @@
               <div class="bg-black/50 border border-neutral-800/90 rounded-2xl p-4 space-y-2.5">
                 <div class="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-neutral-800/60">
                   <span class="text-neutral-300 font-semibold">Martes a Domingo</span>
-                  <span class="font-extrabold text-[#FDCC02]">2:00 PM – 11:00 PM</span>
+                  <span class="font-extrabold text-[#FDCC02]">2:00 PM – 10:00 PM</span>
                 </div>
                 <div class="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-neutral-800/60">
                   <span class="text-neutral-400 font-medium">Lunes</span>
@@ -824,7 +786,7 @@
                 </div>
                 <div class="flex items-center justify-between text-xs sm:text-sm py-1">
                   <span class="text-neutral-300 font-semibold">Último pedido a cocina</span>
-                  <span class="text-white font-bold">10:45 PM</span>
+                  <span class="text-white font-bold">9:45 PM</span>
                 </div>
               </div>
               <p class="text-[11px] text-neutral-400 leading-relaxed italic">
@@ -863,7 +825,7 @@
 
           <!-- Bottom Card Quick Action: Pedir para recoger -->
           <div class="mt-5 pt-4 border-t border-neutral-800/80 flex flex-col gap-2.5">
-            <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20para%20recoger%20en%20sucursal%20Lago%20Constanza%20🍔🏃" 
+            <a href="https://wa.me/525655263382?text=Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20para%20recoger%20en%20sucursal%20Lago%20Constanza" 
                target="_blank" 
                rel="noopener noreferrer" 
                class="w-full bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02] active:scale-95">
@@ -1025,7 +987,7 @@
     <div class="hidden sm:block bg-black text-[#FDCC02] text-xs font-bold py-1.5 px-3.5 rounded-full shadow-lg border border-[#FDCC02]/30">
       ¡Estamos atendiendo en Neza! 🔥
     </div>
-    <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido%20🍔🔥" 
+    <a href="https://wa.me/525655263382?text=Hola%20Burgueros%20Neza!%20Quiero%20hacer%20un%20pedido" 
        target="_blank" 
        rel="noopener noreferrer" 
        aria-label="Pedir ahora por WhatsApp"
@@ -1036,22 +998,44 @@
     </a>
   </aside>
 
+  <!-- ========================================== -->
+  <!-- FLOATING STICKY CART BAR                   -->
+  <!-- ========================================== -->
+  <div id="floating-cart-bar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-lg transition-all duration-300 transform translate-y-32 opacity-0 pointer-events-none">
+    <div class="bg-[#0E0E10] text-white p-2.5 sm:p-3.5 rounded-full shadow-2xl border-2 border-[#FDCC02] flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 sm:gap-3 pl-2">
+        <div class="w-10 h-10 rounded-full bg-[#FDCC02] text-black flex items-center justify-center font-black text-sm shrink-0">
+          <span id="floating-cart-count">0</span>
+        </div>
+        <div>
+          <p class="text-[11px] text-neutral-400 font-semibold leading-tight">Tu Pedido Actual</p>
+          <p class="text-sm sm:text-base font-bold text-[#FDCC02] leading-tight">
+            $<span id="floating-cart-total">0</span> MXN
+          </p>
+        </div>
+      </div>
+      <button type="button" onclick="openCartModal()" class="bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-xs sm:text-sm px-5 sm:px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow transition-transform hover:scale-105 active:scale-95 shrink-0">
+        <span>Ver Carrito</span>
+        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+    </div>
+  </div>
 
   <!-- ========================================== -->
   <!-- 10. INTERACTIVE MENU MODAL                 -->
   <!-- ========================================== -->
   <div id="menu-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 modal-backdrop overflow-y-auto">
-    <div class="bg-[#121214] border border-neutral-800 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+    <div class="bg-[#121214] border border-neutral-800 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto text-left">
       
       <!-- Modal Header -->
       <div class="px-6 py-5 border-b border-neutral-800 flex items-center justify-between bg-[#161619]">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full overflow-hidden border border-[#FDCC02]/40 bg-[#FDCC02]">
+          <div class="w-10 h-10 rounded-full overflow-hidden border border-[#FDCC02]/40 bg-[#FDCC02] shrink-0">
             <img src="assets/28560.jpg" alt="Logo" class="w-full h-full object-cover">
           </div>
           <div>
-            <h3 class="font-comic text-2xl text-white tracking-wide">MENÚ BURGUEROS NEZA</h3>
-            <p class="text-xs text-neutral-400">Selecciona tu antojo y ordénalo directo a WhatsApp</p>
+            <h3 class="font-comic text-2xl text-white tracking-wide">MENÚ OFICIAL BURGUEROS</h3>
+            <p class="text-xs text-neutral-400">Precios oficiales de sucursal • Todas las hamburguesas incluyen papas clásicas gratis</p>
           </div>
         </div>
         <button id="modal-close-btn" class="w-9 h-9 rounded-full bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 flex items-center justify-center transition-colors">
@@ -1069,18 +1053,182 @@
       </div>
 
       <!-- Modal Items Grid -->
-      <div id="modal-items-container" class="p-6 overflow-y-auto space-y-4 max-h-[60vh]">
+      <div id="modal-items-container" class="p-6 overflow-y-auto space-y-4 max-h-[55vh]">
         <!-- Populated via script.js -->
       </div>
 
       <!-- Modal Footer -->
       <div class="px-6 py-4 border-t border-neutral-800 bg-[#161619] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
-        <span>📍 Lago Constanza 241-b, Agua Azul, Nezahualcóyotl</span>
-        <a href="https://wa.me/525655263382?text=¡Hola%20Burgueros%20Neza!%20Tengo%20una%20pregunta%20sobre%20el%20menú" target="_blank" class="text-[#FDCC02] hover:underline font-bold flex items-center gap-1">
-          <span>¿Dudas con tu orden? Escríbenos al 5655263382</span>
-        </a>
+        <span class="text-neutral-400">📍 Lago Constanza 241-b, Agua Azul, Nezahualcóyotl</span>
+        <button type="button" onclick="closeMenuModal(); openCartModal();" class="bg-[#FDCC02] hover:bg-[#e5b802] text-black font-extrabold text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 shadow">
+          <span>Ver Mi Carrito (<span class="header-cart-qty">0</span>) ➔</span>
+        </button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 11. CARRITO & CHECKOUT MODAL               -->
+  <!-- ========================================== -->
+  <div id="cart-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/80 modal-backdrop overflow-y-auto">
+    <div class="bg-[#121214] border-2 border-neutral-800 rounded-3xl max-w-xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto text-left relative">
+      
+      <!-- Cart Header -->
+      <div class="px-5 sm:px-6 py-4 border-b border-neutral-800 flex items-center justify-between bg-[#161619]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#FDCC02] text-black flex items-center justify-center font-comic text-xl shrink-0">
+            🛒
+          </div>
+          <div>
+            <h3 class="font-comic text-2xl text-white tracking-wide">TU PEDIDO</h3>
+            <p class="text-xs text-neutral-400">Verifica tus productos y envíalo directo a WhatsApp</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeCartModal()" class="w-9 h-9 rounded-full bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Free Fries Reminder Banner in Cart -->
+      <div class="bg-[#FDCC02]/15 border-b border-[#FDCC02]/30 px-5 py-2.5 flex items-center gap-2 text-xs text-[#FDCC02] font-bold">
+        <span>★</span>
+        <span>Recuerda: Todas las hamburguesas incluyen 50g de papas clásicas gratis</span>
+      </div>
+
+      <!-- Cart Body: Items List & Customer Form -->
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1 max-h-[60vh]">
+        
+        <!-- Items List Container -->
+        <div id="cart-items-list" class="space-y-3">
+          <!-- Populated via script.js -->
+        </div>
+
+        <!-- Totals Summary Box -->
+        <div id="cart-summary-box" class="bg-black/60 border border-neutral-800 rounded-2xl p-4 space-y-2">
+          <div class="flex justify-between text-xs text-neutral-400">
+            <span>Subtotal de productos:</span>
+            <span class="text-white font-bold" id="cart-subtotal">$0 MXN</span>
+          </div>
+          <div class="flex justify-between text-xs text-neutral-400">
+            <span>Precios oficiales:</span>
+            <span class="text-[#FDCC02] font-semibold">Pickup / Sucursal</span>
+          </div>
+          <div class="border-t border-neutral-800 pt-2 flex justify-between items-center text-base sm:text-lg font-comic text-white">
+            <span>TOTAL A PAGAR:</span>
+            <span class="text-[#FDCC02] text-xl font-comic" id="cart-total">$0 MXN</span>
+          </div>
+        </div>
+
+        <!-- Customer Data Form -->
+        <div id="cart-checkout-form" class="space-y-4 pt-1">
+          <div class="border-b border-neutral-800 pb-2">
+            <h4 class="font-comic text-lg text-white">DATOS PARA EL PEDIDO</h4>
+            <p class="text-xs text-neutral-400">Sin registros ni contraseñas, solo lo necesario para preparar tu comida.</p>
+          </div>
+
+          <!-- Name & Phone Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-neutral-300 mb-1">Tu Nombre *</label>
+              <input type="text" id="order-customer-name" placeholder="Ej. Carlos Mendoza" required
+                     class="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#FDCC02]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-neutral-300 mb-1">Teléfono WhatsApp *</label>
+              <input type="tel" id="order-customer-phone" placeholder="Ej. 55 1234 5678" required
+                     class="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#FDCC02]">
+            </div>
+          </div>
+
+          <!-- Delivery Mode Selector -->
+          <div>
+            <label class="block text-xs font-bold text-neutral-300 mb-1.5">Tipo de Entrega *</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="delivery-type-pickup" onclick="setDeliveryType('pickup')" 
+                      class="delivery-type-btn py-2.5 px-3 rounded-xl border border-[#FDCC02] bg-[#FDCC02] text-black text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all">
+                <span>🏃 Para Recoger (Pickup)</span>
+              </button>
+              <button type="button" id="delivery-type-delivery" onclick="setDeliveryType('delivery')" 
+                      class="delivery-type-btn py-2.5 px-3 rounded-xl border border-neutral-700 bg-neutral-900 text-neutral-300 hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
+                <span>🛵 Entrega a Domicilio</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Delivery Address (Conditional) -->
+          <div id="delivery-address-container" class="hidden">
+            <label class="block text-xs font-bold text-neutral-300 mb-1">Dirección de Entrega en Neza *</label>
+            <textarea id="order-customer-address" rows="2" placeholder="Calle, número ext/int, colonia y referencias de tu casa..."
+                      class="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-[#FDCC02]"></textarea>
+          </div>
+
+          <!-- Payment Method -->
+          <div>
+            <label class="block text-xs font-bold text-neutral-300 mb-1.5">Método de Pago *</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="payment-method-cash" onclick="setPaymentMethod('Efectivo')"
+                      class="payment-method-btn py-2 px-3 rounded-xl border border-[#FDCC02] bg-[#FDCC02] text-black text-xs font-extrabold flex items-center justify-center gap-1.5 transition-all">
+                <span>💵 Efectivo</span>
+              </button>
+              <button type="button" id="payment-method-transfer" onclick="setPaymentMethod('Transferencia')"
+                      class="payment-method-btn py-2 px-3 rounded-xl border border-neutral-700 bg-neutral-900 text-neutral-300 hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
+                <span>📲 Transferencia</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label class="block text-xs font-bold text-neutral-300 mb-1">Notas especiales (opcional)</label>
+            <input type="text" id="order-customer-notes" placeholder="Ej. Hamburguesa sin cebolla, salsas aparte..."
+                   class="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-[#FDCC02]">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Cart Footer / WhatsApp Button -->
+      <div class="p-4 sm:p-5 border-t border-neutral-800 bg-[#161619] space-y-2">
+        <button id="send-order-whatsapp-btn" onclick="submitOrderToWhatsApp()" 
+                class="w-full bg-[#25D366] hover:bg-[#20ba59] text-black font-extrabold text-sm sm:text-base py-3.5 px-4 rounded-xl flex items-center justify-center gap-2.5 shadow-xl transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:pointer-events-none">
+          <svg class="w-5 h-5 fill-current text-black" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          <span>ENVIAR PEDIDO POR WHATSAPP</span>
+        </button>
+        <p class="text-[11px] text-neutral-400 text-center">
+          Al presionar, se abrirá WhatsApp con tu pedido desglosado en texto limpio listo para enviar.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 12. MODAL MENÚ OFICIAL (FLYER IMAGE)       -->
+  <!-- ========================================== -->
+  <div id="menu-image-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/85 modal-backdrop overflow-y-auto">
+    <div class="bg-[#121214] border-2 border-neutral-800 rounded-3xl max-w-2xl w-full flex flex-col shadow-2xl overflow-hidden my-auto text-left relative">
+      <div class="px-5 py-4 border-b border-neutral-800 flex items-center justify-between bg-[#161619]">
+        <div class="flex items-center gap-2">
+          <span class="text-[#FDCC02] font-comic text-xl">VER BURGUEROS</span>
+          <span class="text-xs text-neutral-400">Carta Oficial de Precios</span>
+        </div>
+        <button type="button" onclick="closeMenuImageModal()" class="w-8 h-8 rounded-full bg-neutral-800 text-neutral-400 hover:text-white flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="p-3 bg-neutral-950 flex items-center justify-center overflow-auto max-h-[75vh]">
+        <img src="assets/menu-oficial.png" alt="Menú Oficial Ver Burgueros Neza" class="w-full h-auto rounded-xl shadow-lg">
+      </div>
+      <div class="px-5 py-3 border-t border-neutral-800 bg-[#161619] flex items-center justify-between text-xs text-neutral-400">
+        <span>Horario: De 2:00 PM a 10:00 PM • Precios para Pickup</span>
+        <button type="button" onclick="closeMenuImageModal(); openCartModal();" class="text-[#FDCC02] font-bold hover:underline">
+          Hacer Pedido ➔
+        </button>
+      </div>
     </div>
   </div>
 
