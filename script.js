@@ -48,7 +48,7 @@ const OFFICIAL_MENU = [
     badge: 'Edición Especial (50 Pzas)',
     desc: 'Carne especial de la casa, queso americano, cebolla caramelizada, aderezo de la casa, en una concha blanca.',
     includes: 'Incluye 50g de papas clasicas gratis',
-    img: 'assets/menu-burger.png'
+    img: 'assets/menu-conchuda.png'
   },
 
   // 2. PAPAS A LA FRANCESA (150g de papas a la francesa sazonadas. Hechas a mano.)
@@ -287,10 +287,11 @@ function updateCartUI() {
   const headerCartQty = document.querySelectorAll('.header-cart-qty');
   headerCartQty.forEach(el => el.textContent = count);
 
-  // Floating Bottom Cart Bar
+  // Floating Bottom Cart Bar & Floating WhatsApp Widget
   const floatingBar = document.getElementById('floating-cart-bar');
   const floatingCount = document.getElementById('floating-cart-count');
   const floatingTotal = document.getElementById('floating-cart-total');
+  const whatsappWidget = document.getElementById('floating-whatsapp-widget');
 
   if (floatingBar && floatingCount && floatingTotal) {
     floatingCount.textContent = count;
@@ -299,9 +300,11 @@ function updateCartUI() {
     if (count > 0) {
       floatingBar.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
       floatingBar.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      if (whatsappWidget) whatsappWidget.classList.add('cart-elevated');
     } else {
       floatingBar.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
       floatingBar.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      if (whatsappWidget) whatsappWidget.classList.remove('cart-elevated');
     }
   }
 
@@ -424,25 +427,25 @@ function renderMenuItemsModal(category = 'todas') {
     }
 
     return `
-      <div class="bg-[#18181b] border border-neutral-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-[#FDCC02]/40 transition-colors">
-        <div class="flex gap-4 items-start">
-          <img src="${item.img}" alt="${item.name}" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
+      <div class="bg-[#18181b] border border-neutral-800 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between hover:border-[#FDCC02]/40 transition-colors">
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img src="${item.img}" alt="${item.name}" class="w-16 h-16 sm:w-24 sm:h-24 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 flex-wrap mb-1">
-              <span class="text-xs bg-[#FDCC02] text-black font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">${item.badge}</span>
-              <span class="text-xs text-neutral-400 uppercase tracking-widest">${item.category}</span>
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-1">
+              <span class="text-[10px] sm:text-xs bg-[#FDCC02] text-black font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">${item.badge}</span>
+              <span class="text-[10px] sm:text-xs text-neutral-400 uppercase tracking-widest">${item.category}</span>
             </div>
-            <h4 class="font-comic text-white text-lg sm:text-xl leading-tight">${item.name}</h4>
+            <h4 class="font-comic text-white text-base sm:text-xl leading-tight">${item.name}</h4>
             <p class="text-xs sm:text-sm text-neutral-400 mt-1 leading-relaxed">${item.desc}</p>
             ${item.includes ? `<p class="text-xs text-[#FDCC02] font-semibold mt-1">★ ${item.includes}</p>` : ''}
             ${optionsSelect}
           </div>
         </div>
-        <div class="flex items-center justify-between mt-4 pt-3 border-t border-neutral-800/80">
-          <div class="text-[#FDCC02] font-comic text-xl sm:text-2xl">$${item.price} <span class="text-xs text-neutral-400 font-sans">MXN</span></div>
+        <div class="flex items-center justify-between mt-3.5 sm:mt-4 pt-3 border-t border-neutral-800/80">
+          <div class="text-[#FDCC02] font-comic text-lg sm:text-2xl">$${item.price} <span class="text-xs text-neutral-400 font-sans">MXN</span></div>
           <button type="button" onclick="addFromModal('${item.id}')"
-                  class="add-btn-${item.id} bg-[#FDCC02] hover:bg-[#e5b802] text-black font-bold text-xs sm:text-sm px-4 py-2 rounded-full inline-flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 shadow">
-            <span>+ Agregar al Carrito</span>
+                  class="add-btn-${item.id} bg-[#FDCC02] hover:bg-[#e5b802] text-black font-bold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-full inline-flex items-center gap-1.5 sm:gap-2 transition-transform hover:scale-105 active:scale-95 shadow">
+            <span>+ Agregar</span>
           </button>
         </div>
       </div>
@@ -597,45 +600,50 @@ function renderCartModal() {
 
   container.innerHTML = cart.map(item => {
     return `
-      <div class="bg-black/50 border border-neutral-800/90 rounded-2xl p-3 sm:p-4 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3 min-w-0">
-          <img src="${item.img}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
-          <div class="min-w-0">
-            <h5 class="font-bold text-white text-sm sm:text-base leading-tight truncate">
-              ${item.name}
-            </h5>
-            ${item.selectedOption ? `<p class="text-[11px] text-[#FDCC02] font-semibold truncate">Sabor: ${item.selectedOption}</p>` : ''}
-            ${item.includes ? `<p class="text-[10px] text-neutral-400 truncate">★ ${item.includes}</p>` : ''}
-            <span class="text-xs font-semibold text-neutral-300">$${item.price} MXN c/u</span>
+      <div class="bg-black/60 border border-neutral-800 rounded-2xl p-3 sm:p-4 space-y-2.5">
+        <!-- Top row: Product image, title, option, and delete button -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0 flex-1">
+            <img src="${item.img}" alt="${item.name}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
+            <div class="min-w-0 flex-1">
+              <h5 class="font-bold text-white text-sm sm:text-base leading-snug">
+                ${item.name}
+              </h5>
+              ${item.selectedOption ? `<p class="text-xs text-[#FDCC02] font-semibold mt-0.5">Sabor: ${item.selectedOption}</p>` : ''}
+              ${item.includes ? `<p class="text-[11px] text-neutral-400 mt-0.5">★ ${item.includes}</p>` : ''}
+              <p class="text-xs text-neutral-400 mt-0.5 font-medium">$${item.price} MXN c/u</p>
+            </div>
           </div>
+
+          <!-- Delete Button -->
+          <button type="button" onclick="removeFromCart('${item.cartKey}')" title="Eliminar producto"
+                  class="text-neutral-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-neutral-800/80 transition-colors shrink-0 -mr-1 -mt-1" aria-label="Eliminar ${item.name}">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+          </button>
         </div>
 
-        <div class="flex items-center gap-3 shrink-0">
-          <!-- Quantity Stepper -->
-          <div class="flex items-center border border-neutral-700 bg-neutral-900 rounded-xl overflow-hidden">
+        <!-- Bottom row: Quantity Stepper (left) & Subtotal (right) -->
+        <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80">
+          <div class="flex items-center border border-neutral-700 bg-neutral-900 rounded-xl overflow-hidden shadow-inner">
             <button type="button" onclick="updateCartQty('${item.cartKey}', -1)" aria-label="Disminuir"
-                    class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-white hover:bg-neutral-800 transition-colors font-bold text-sm">
-              -
+                    class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-white hover:bg-neutral-800 transition-colors font-bold text-base active:scale-95">
+              −
             </button>
             <span class="w-7 sm:w-8 text-center text-xs sm:text-sm font-extrabold text-[#FDCC02]">
               ${item.quantity}
             </span>
             <button type="button" onclick="updateCartQty('${item.cartKey}', 1)" aria-label="Aumentar"
-                    class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-white hover:bg-neutral-800 transition-colors font-bold text-sm">
+                    class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-white hover:bg-neutral-800 transition-colors font-bold text-base active:scale-95">
               +
             </button>
           </div>
 
-          <!-- Total for item -->
-          <span class="font-comic text-sm sm:text-base text-white w-16 text-right">
-            $${item.price * item.quantity}
-          </span>
-
-          <!-- Delete -->
-          <button type="button" onclick="removeFromCart('${item.cartKey}')" title="Eliminar producto"
-                  class="text-neutral-500 hover:text-red-400 p-1.5 transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-          </button>
+          <div class="text-right">
+            <span class="text-[11px] text-neutral-400 mr-1.5 hidden sm:inline">Subtotal:</span>
+            <span class="font-comic text-base sm:text-lg text-[#FDCC02] font-bold">
+              $${item.price * item.quantity} <span class="text-xs font-sans text-neutral-300 font-normal">MXN</span>
+            </span>
+          </div>
         </div>
       </div>
     `;
