@@ -59,7 +59,7 @@ const OFFICIAL_MENU = [
     price: 69,
     badge: '150g Hechas a mano',
     desc: '150g de papas a la francesa sazonadas con sal, pimienta y un toque especial. Hechas a mano.',
-    img: 'assets/menu-fries.png'
+    img: 'assets/papas-clasicas.jpeg'
   },
   {
     id: 'papas-bravas',
@@ -68,7 +68,7 @@ const OFFICIAL_MENU = [
     price: 89,
     badge: '★ Maple-Habanero & Tocino',
     desc: '150g de papas sazonadas con sal, pimienta, un toque especial, aderezo maple-habanero y tocino.',
-    img: 'assets/menu-fries.png'
+    img: 'assets/papas-bravas.jpeg'
   },
   {
     id: 'papas-quesoink',
@@ -77,7 +77,7 @@ const OFFICIAL_MENU = [
     price: 89,
     badge: 'Cheddar & Tocino',
     desc: '150g de papas sazonadas con sal, pimienta, un toque especial, aderezo queso cheddar y tocino.',
-    img: 'assets/menu-fries.png'
+    img: 'assets/papas-quesoink.jpeg'
   },
 
   // 3. ADEREZO EXTRA
@@ -90,7 +90,7 @@ const OFFICIAL_MENU = [
     desc: 'Porción de 2oz. Elige tu aderezo favorito.',
     optionsLabel: 'Elige tu aderezo',
     options: ['Maple habanero', 'Ranch picante', 'Ranch original', 'Queso cheddar'],
-    img: 'assets/menu-extras.png'
+    img: 'assets/extras-aderezo.jpeg'
   },
 
   // 4. BEBIDAS / REFRESCOS 355ML
@@ -154,7 +154,7 @@ const OFFICIAL_MENU = [
     price: 99,
     badge: 'Twinkies & Tocino',
     desc: '3 Twinkies envueltos en tocino crujiente. Sabes que los quieres.',
-    img: 'assets/menu-extras.png'
+    img: 'assets/postre-cochinitos.jpeg'
   }
 ];
 
