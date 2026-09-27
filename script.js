@@ -103,7 +103,7 @@ const OFFICIAL_MENU = [
     desc: 'Refresco frío de 355 ml. Elige entre Coca clásica, Fanta ó Sprite.',
     optionsLabel: 'Elige tu sabor',
     options: ['Coca clásica', 'Fanta', 'Sprite'],
-    img: 'assets/menu-drinks.png'
+    img: 'assets/menu-refrescos.webp'
   },
   {
     id: 'bubble-tea',
@@ -114,7 +114,7 @@ const OFFICIAL_MENU = [
     desc: '320 ml de té refrescante con perlas. Elige entre mango o durazno.',
     optionsLabel: 'Elige tu sabor',
     options: ['Mango', 'Durazno'],
-    img: 'assets/menu-drinks.png'
+    img: 'assets/menu-bubble-tea.jpeg'
   },
 
   // 5. MALTEADAS 16OZ
@@ -125,7 +125,7 @@ const OFFICIAL_MENU = [
     price: 79,
     badge: '★ Receta Secreta Naranja',
     desc: '16oz de malteada de naranja con la receta secreta. Refrescante y cítrica.',
-    img: 'assets/menu-drinks.png'
+    img: 'assets/menu-malteada-jefa.jpeg'
   },
   {
     id: 'malteada-cremosa',
@@ -134,7 +134,7 @@ const OFFICIAL_MENU = [
     price: 69,
     badge: 'Crema de Maní',
     desc: '16oz de malteada de crema de maní. Cremosa y sabrosa.',
-    img: 'assets/menu-drinks.png'
+    img: 'assets/menu-malteada-mani.jpeg'
   },
   {
     id: 'malteada-oink-oink',
@@ -143,7 +143,7 @@ const OFFICIAL_MENU = [
     price: 79,
     badge: 'Tocino Dulce & Salada',
     desc: '16oz de malteada de tocino, ahumada, dulce y salada. ¡No has probado otra igual!',
-    img: 'assets/menu-drinks.png'
+    img: 'assets/menu-malteada-oink.jpeg'
   },
 
   // 6. POSTRE
@@ -347,6 +347,9 @@ function createProductCardHTML(item) {
               ${item.badge}
             </span>
           </div>
+          <div class="absolute bottom-2 left-2.5 bg-black/75 backdrop-blur-xs px-2 py-0.5 rounded-md border border-white/10 text-[9px] text-neutral-300 font-medium pointer-events-none">
+            * Imagen representativa
+          </div>
           <div class="absolute bottom-2 right-2 bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-xl border border-neutral-700/80">
             <span class="font-comic text-[#FDCC02] text-lg leading-none">$${item.price}</span>
             <span class="text-[10px] text-neutral-300 font-sans">MXN</span>
@@ -429,7 +432,10 @@ function renderMenuItemsModal(category = 'todas') {
     return `
       <div class="bg-[#18181b] border border-neutral-800 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between hover:border-[#FDCC02]/40 transition-colors">
         <div class="flex gap-3 sm:gap-4 items-start">
-          <img src="${item.img}" alt="${item.name}" class="w-16 h-16 sm:w-24 sm:h-24 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
+          <div class="flex flex-col items-center shrink-0">
+            <img src="${item.img}" alt="${item.name}" class="w-16 h-16 sm:w-24 sm:h-24 rounded-xl object-cover bg-neutral-900 border border-neutral-700">
+            <span class="text-[8px] sm:text-[9px] text-neutral-500 mt-1 font-medium text-center leading-none">* Ilustrativa</span>
+          </div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-1">
               <span class="text-[10px] sm:text-xs bg-[#FDCC02] text-black font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">${item.badge}</span>
@@ -604,7 +610,10 @@ function renderCartModal() {
         <!-- Top row: Product image, title, option, and delete button -->
         <div class="flex items-start justify-between gap-3">
           <div class="flex items-start gap-3 min-w-0 flex-1">
-            <img src="${item.img}" alt="${item.name}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover bg-neutral-900 border border-neutral-700 shrink-0">
+            <div class="flex flex-col items-center shrink-0">
+              <img src="${item.img}" alt="${item.name}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover bg-neutral-900 border border-neutral-700">
+              <span class="text-[8px] text-neutral-500 mt-0.5 font-medium leading-none text-center">* Ilustrativa</span>
+            </div>
             <div class="min-w-0 flex-1">
               <h5 class="font-bold text-white text-sm sm:text-base leading-snug">
                 ${item.name}
